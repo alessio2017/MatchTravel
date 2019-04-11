@@ -1,0 +1,132 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:6423953532427123001",
+      "lastPropertyId": "2:580165076738239059",
+      "name": "Attraction",
+      "properties": [
+        {
+          "id": "1:1812254884071996518",
+          "name": "id"
+        },
+        {
+          "id": "2:580165076738239059",
+          "name": "attraction"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:4342532552832481679",
+      "lastPropertyId": "7:2103749974171113099",
+      "name": "City",
+      "properties": [
+        {
+          "id": "1:5111149401711571544",
+          "name": "id"
+        },
+        {
+          "id": "2:522953930782451014",
+          "name": "name"
+        },
+        {
+          "id": "3:1750438842539994965",
+          "name": "description"
+        },
+        {
+          "id": "4:3602592741542865943",
+          "name": "local"
+        },
+        {
+          "id": "5:1738047147336333477",
+          "name": "budget"
+        },
+        {
+          "id": "6:8822861781203102969",
+          "name": "tourists"
+        },
+        {
+          "id": "7:2103749974171113099",
+          "name": "temperature"
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:2765741915432359982",
+          "name": "kinds"
+        },
+        {
+          "id": "2:3741529323847831111",
+          "name": "activities"
+        }
+      ]
+    },
+    {
+      "id": "3:2280061002702718157",
+      "lastPropertyId": "2:8772595465738355791",
+      "name": "Kind",
+      "properties": [
+        {
+          "id": "1:1343349108605617508",
+          "name": "id"
+        },
+        {
+          "id": "2:8772595465738355791",
+          "name": "kind"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:8788638811422916175",
+      "lastPropertyId": "6:1304468019224272098",
+      "name": "User",
+      "properties": [
+        {
+          "id": "1:5787021811209707192",
+          "name": "id"
+        },
+        {
+          "id": "2:4137329924864522141",
+          "name": "name"
+        },
+        {
+          "id": "3:5095231104086087872",
+          "name": "surname"
+        },
+        {
+          "id": "4:6529514534542270263",
+          "name": "age"
+        },
+        {
+          "id": "5:3684206311808753495",
+          "name": "description"
+        },
+        {
+          "id": "6:1304468019224272098",
+          "name": "loggedIn"
+        }
+      ],
+      "relations": [
+        {
+          "id": "3:9051433798310054408",
+          "name": "destinations"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "4:8788638811422916175",
+  "lastIndexId": "0:0",
+  "lastRelationId": "3:9051433798310054408",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
