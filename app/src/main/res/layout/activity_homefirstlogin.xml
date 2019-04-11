@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pattern_background_blurred">
+
+    <TextView
+        android:id="@+id/lbl_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/welcome"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_profilepic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/user_profile_pic"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/img_user" />
+
+    <TextView
+        android:id="@+id/lbl_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/name"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_welcome" />
+
+    <TextView
+        android:id="@+id/lbl_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/age"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_name" />
+
+    <TextView
+        android:id="@+id/lbl_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/status"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_age" />
+
+    <TextView
+        android:id="@+id/lbl_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/country"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_status" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/name_of_the_users"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_welcome" />
+
+    <TextView
+        android:id="@+id/txt_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/age_user"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+
+    <TextView
+        android:id="@+id/txt_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/status_user"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_age" />
+
+    <TextView
+        android:id="@+id/txt_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/country_user"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_status" />
+
+    <TextView
+        android:id="@+id/lbl_about_yourself"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/about_yourself"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_country" />
+
+    <EditText
+        android:id="@+id/txt_description_user"
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:autofillHints="Just joined this application! write me"
+        android:background="@color/light_grey"
+        android:fontFamily="@font/covesbold"
+        android:gravity="top"
+        android:hint="@string/speak_about_yourself"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:maxLength="200"
+        android:singleLine="false"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lbl_about_yourself"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_about_yourself"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/btn_find_destinations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/btn_find_destinations"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_description_user"
+        app:srcCompat="@drawable/btn_find_your_destination" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pattern_background_blurred" />
+
+</android.support.constraint.ConstraintLayout>

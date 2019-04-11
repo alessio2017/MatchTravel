@@ -1,5 +1,6 @@
 package matchtravel.com.matchtravel;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,10 +30,9 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login); //viene settata la view del Login
 
-        btnFacebook = (ImageView) findViewById(R.id.facebook_btn);
-        btnGoogle = (ImageView) findViewById(R.id.google_btn);
+        btnFacebook = (ImageView) findViewById(R.id.btn_facebook_access);
+        btnGoogle = (ImageView) findViewById(R.id.btn_google_access);
         loadingBar = (ProgressBar) findViewById(R.id.progressBar);
-
 
         loadingBar.setVisibility(View.INVISIBLE); //anche se di default sull xml era gia su invisible
 
@@ -45,8 +45,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loadingBar.setVisibility(View.VISIBLE);
-                Toast.makeText(getApplicationContext(), "You are loggin with facebook, please wait..", Toast.LENGTH_LONG).show();
-                //loginMethod()
+                Toast.makeText(getApplicationContext(), "Logged with facebook!", Toast.LENGTH_LONG).show();
+                loginMethod();
             }
         });
 
@@ -54,20 +54,20 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loadingBar.setVisibility(View.VISIBLE);
-                Toast.makeText(getApplicationContext(), "You are loggin with google, please wait..", Toast.LENGTH_LONG).show();
-                //loginMethod()
+                Toast.makeText(getApplicationContext(), "Logged with google!", Toast.LENGTH_LONG).show();
+                loginMethod();
             }
         });
 
     }
 
 
-    /*
-    loginMethod(){
-        if (maifattoquestionario) vai all'activity del questionario
-            else vai all'activity della wishlist (homepage)
+
+    public void loginMethod(){
+        Intent goToHomeFirstLogin = new Intent(LoginActivity.this, HomeFirstLogin.class);
+        startActivity(goToHomeFirstLogin);
     }
-    */
+
 
 
 
