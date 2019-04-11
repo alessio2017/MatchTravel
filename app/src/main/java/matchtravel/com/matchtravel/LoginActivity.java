@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         /* Metodo che al click del bottone gestisce il login e le splash screen. Nota bene: nel db ci
         dev'essere un valore in grado di poterci dire se l'utente test ha gia compilato il questionario
-        o meno. */
+        o meno.  */
 
         btnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
