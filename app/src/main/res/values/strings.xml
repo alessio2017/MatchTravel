@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MatchTravel</string>
+
+    <string name="facebook_app_id">2393957267507586</string> <string name="fb_login_protocol_scheme">fb2393957267507586</string>
+    <string name="label_one">Take the survey and find which cities match your interest!</string>
+    <string name="label_two">Going ahead, you confirm to accept our privacy conditions and terms</string>
+
+</resources>

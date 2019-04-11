@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "53361318124",
+    "firebase_url": "https://matchtravel-adafe.firebaseio.com",
+    "project_id": "matchtravel-adafe",
+    "storage_bucket": "matchtravel-adafe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53361318124:android:40605a18155b12d0",
+        "android_client_info": {
+          "package_name": "matchtravel.com.matchtravel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53361318124-u566p8b75dcdt9k502lo43j7bk9eg24o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "matchtravel.com.matchtravel",
+            "certificate_hash": "ea1c069b5df8fb09fd29f821ccf4081573c3fc22"
+          }
+        },
+        {
+          "client_id": "53361318124-t4vnp1c6shoc90j0g08urqd5ob969b0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnqKW0X5RzyoShWkFYLDptwsKAlrZ_lGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53361318124-t4vnp1c6shoc90j0g08urqd5ob969b0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
