@@ -13,12 +13,12 @@ public class User {
     public String name;
     public String surname;
     public Date age;
+    public String status;
+    public String country;
     public String description;
     public ToMany<City> destinations;
-    public boolean loggedIn;
 
     public User(){}
-
 
     public long getId() {
         return id;
@@ -68,11 +68,20 @@ public class User {
         this.destinations = destinations;
     }
 
-    public boolean isLoggedIn() {
-        return loggedIn;
+
+    public String getStatus() {
+        return status;
     }
 
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

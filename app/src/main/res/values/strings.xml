@@ -17,4 +17,8 @@
     <string name="speak_about_yourself">Speak about yourself..(max 200 characters)</string>
     <string name="btn_find_destinations">button to find destination doing a survey</string>
 
+    <!--Le stringe qui sotto sono utilizzate per le sharedPreference. Non cambiare MAI.-->
+    <string name="sharedPref_file">myPrefFile</string>
+    <string name="sharedPref_db_init">dbIsInitialize</string>
+
 </resources>

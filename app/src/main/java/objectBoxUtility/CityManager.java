@@ -1,5 +1,9 @@
 package objectBoxUtility;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import datadb.City;
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
@@ -62,8 +66,8 @@ public class CityManager {
         c.local = false;
         c.budget = 3;
         c.activities.add(attractionManager.getAttraction(0));
+        c.activities.add(attractionManager.getAttraction(2));
         c.activities.add(attractionManager.getAttraction(3));
-        c.activities.add(attractionManager.getAttraction(4));
         c.tourists = 3;
         c.temperature = 1;
         cityBox.put(c);
@@ -872,6 +876,26 @@ public class CityManager {
         cityBox.put(c);
     }
 
-    //TODO: qui si dovranno fare i metodi per ritirare la lista dei risultati del questionario
+    public List<City> getRandomCities(){
+        Random random = new Random();
+        /*numero casuale di città*/
+        int numberCities = random.nextInt(10) + 1;
+        List<City> cities = new ArrayList<>();
+        /*Usata per evitare ripetizioni sulle città scelte*/
+        List<Integer> retrieved = new ArrayList<>();
+        /*città scelte casualmente per id*/
+        int cityId;
+        int i = 0;
+        while(i<numberCities){
+            cityId = random.nextInt(54) + 1;
+            if(!retrieved.contains(cityId)){
+                /*se la città non è gia stata pescata, viene fatto ora*/
+                retrieved.add(cityId);
+                cities.add(cityBox.get(cityId));
+                i++;
+            }
+        }
+        return cities;
+    }
 }
 

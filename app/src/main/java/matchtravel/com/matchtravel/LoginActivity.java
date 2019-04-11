@@ -1,14 +1,22 @@
 package matchtravel.com.matchtravel;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import objectBoxUtility.AttractionManager;
+import objectBoxUtility.CityManager;
+import objectBoxUtility.KindManager;
+import objectBoxUtility.ObjectBox;
+import objectBoxUtility.UserManager;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -59,11 +67,41 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        /*Il codice seguente inizializza il database. Non cambiare.*/
+        ObjectBox.init(this);
+
+        /*Inizializzazione del DB tramite SharedPreference*/
+        SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.sharedPref_file), MODE_PRIVATE);
+        boolean isInit = sharedPreferences.getBoolean(getString(R.string.sharedPref_db_init), false);
+        if(!isInit){
+            /* init db */
+            AttractionManager attractionManager = new AttractionManager(ObjectBox.get());
+            KindManager kindManager = new KindManager(ObjectBox.get());
+            CityManager cityManager = new CityManager(ObjectBox.get());
+            UserManager userManager = new UserManager(ObjectBox.get());
+
+            /*Non cambiare l'ordine!*/
+            attractionManager.init();
+            Log.i("ObBox","Attraction manager completato");
+            kindManager.init();
+            Log.i("ObBox","Kind manager completato");
+            cityManager.init();
+            Log.i("ObBox","City manager completato");
+            userManager.init();
+            Log.i("ObBox","User manager completato");
+
+            /*Salvate le modifiche sulle shared preference in modo da non ripetere l'inizializzazione*/
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(getString(R.string.sharedPref_db_init), true);
+            editor.commit();
+        }
     }
 
 
 
     public void loginMethod(){
+        //TODO: se l'utente lo ha già fatto, non deve ripetere il primo questionario. Usare una sharedPref.
         Intent goToHomeFirstLogin = new Intent(LoginActivity.this, HomeFirstLogin.class);
         startActivity(goToHomeFirstLogin);
     }
