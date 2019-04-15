@@ -7,7 +7,7 @@ import io.objectbox.annotation.Id;
 public class Kind {
     @Id
     public long id;
-    //può essere solo uno tra Sea, Mountain, Art, Food e Romantic
+    //può essere solo uno tra Sea, mountain, art, Food e romantic
     public String kind;
 
     public Kind() {}
