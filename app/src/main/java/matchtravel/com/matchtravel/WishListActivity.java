@@ -28,8 +28,11 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationbar_for_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setItemIconTintList(null);
 
         loadFragment(new HomeFragment()); //carica di default il fragment della home
+
+
     }
 
     private boolean loadFragment(Fragment fragment) {
@@ -54,7 +57,7 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
 
             case R.id.home_fragment_button:
                 fragment = new HomeFragment();
-                 break;
+                break;
             case R.id.search_destinations_fragment_button:
                 fragment = new SearchFragment();
                 break;

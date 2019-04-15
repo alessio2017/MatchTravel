@@ -5,23 +5,25 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent">
 
+    <!-- per ogni icona è selezionato il rispettivo file xml che sceglie l'icona nera/colorata in base
+    a se viene cliccata o meno. I files sono chiamati selettori. -->
     <item
         android:id="@+id/home_fragment_button"
-        android:icon="@drawable/icon_home"
+        android:icon="@xml/icon_chooser_home"
         android:title="@string/home" />
 
     <item
         android:id="@+id/search_destinations_fragment_button"
-        android:icon="@drawable/icon_search"
+        android:icon="@xml/icon_chooser_search"
         android:title="@string/search" />
 
     <item
         android:id="@+id/survey_fragment_button"
-        android:icon="@drawable/icon_survey"
+        android:icon="@xml/icon_chooser_survey"
         android:title="@string/survey" />
 
     <item
         android:id="@+id/profile_own_fragment_button"
-        android:icon="@drawable/icon_profile_own"
+        android:icon="@xml/icon_chooser_profile_own"
         android:title="@string/profile" />
 </menu>

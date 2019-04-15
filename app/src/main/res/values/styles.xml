@@ -22,4 +22,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- questo permette di cambiare il font all'interno della navigation bar menu in basso -->
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/covesbold</item>
+    </style>
+
 </resources>
