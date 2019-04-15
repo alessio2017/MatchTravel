@@ -11,7 +11,7 @@ import android.widget.Toast;
 /* Questa classe gestisce il primo login dell'utente (nel nostro caso l'user test), che permette la
 * visualizzazione dei dati personali che in teoria prende dai social ma in questo esempio prende dal
 * database locale in objectBoxUtility.ObjectBox e permette l'inserimento di una descrizione personale */
-public class HomeFirstLogin extends AppCompatActivity {
+public class HomeFirstLoginActivity extends AppCompatActivity {
 
     private ProgressBar loadingBar;
     private EditText txt_description_user;

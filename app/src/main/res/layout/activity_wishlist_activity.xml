@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pattern_background_blurred_up_right">
+
+    <FrameLayout
+        android:id="@+id/container_fragments"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_above="@+id/navigationbar_for_menu"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toTopOf="@+id/navigationbar_for_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigationbar_for_menu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:theme="@style/Widget.BottomNavigationView"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/wishlist_menu" />
+
+</android.support.constraint.ConstraintLayout>
