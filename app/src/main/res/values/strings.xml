@@ -24,4 +24,10 @@
     <string name="sharedPref_file">myPrefFile</string>
     <string name="sharedPref_db_init">dbIsInitialize</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="survey">Survey</string>
+    <string name="profile">Profile</string>
+
 </resources>

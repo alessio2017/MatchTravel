@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <item
+        android:id="@+id/home_fragment_button"
+        android:icon="@drawable/icon_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/search_destinations_fragment_button"
+        android:icon="@drawable/icon_search"
+        android:title="@string/search" />
+
+    <item
+        android:id="@+id/survey_fragment_button"
+        android:icon="@drawable/icon_survey"
+        android:title="@string/survey" />
+
+    <item
+        android:id="@+id/profile_own_fragment_button"
+        android:icon="@drawable/icon_profile_own"
+        android:title="@string/profile" />
+</menu>

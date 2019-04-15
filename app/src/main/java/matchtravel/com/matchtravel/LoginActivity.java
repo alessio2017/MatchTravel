@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -17,8 +15,6 @@ import objectBoxUtility.CityManager;
 import objectBoxUtility.KindManager;
 import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 
 /* Questa classe permette la gestione del login di un user test che verrà usato come riferimento
@@ -63,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 loadingBar.setVisibility(View.VISIBLE);
                 Toast.makeText(getApplicationContext(), "Logged with google!", Toast.LENGTH_LONG).show();
-                loginMethod();
+                loginMethodProvvisorio(); //va alla wishlist, ma é una soluzione provvisoria per controllare il funzionamento di Wishlist
             }
         });
 
@@ -102,8 +98,14 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginMethod(){
         //TODO: se l'utente lo ha già fatto, non deve ripetere il primo questionario. Usare una sharedPref.
-        Intent goToHomeFirstLogin = new Intent(LoginActivity.this, HomeFirstLogin.class);
+        Intent goToHomeFirstLogin = new Intent(LoginActivity.this, HomeFirstLoginActivity.class);
         startActivity(goToHomeFirstLogin);
+    }
+
+    public void loginMethodProvvisorio(){
+        //TODO: se l'utente lo ha già fatto, non deve ripetere il primo questionario. Usare una sharedPref.
+        Intent goToWishList = new Intent(LoginActivity.this, WishListActivity.class);
+        startActivity(goToWishList);
     }
 
 
