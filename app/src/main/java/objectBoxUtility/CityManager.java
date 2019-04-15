@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import datadb.Attraction;
 import datadb.City;
+import datadb.City_;
+import datadb.Kind;
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
 
@@ -896,6 +899,88 @@ public class CityManager {
             }
         }
         return cities;
+    }
+
+    public List<City> getCity(int kind, int local, int budget, int activities, int tourist, int temperature) {
+        List<City> cities = null;
+
+        if(local == 2 && temperature == 3){
+            cities = cityBox.query().equal(City_.budget, budget)
+                    .and()
+                    .less(City_.tourists, tourist+1)
+                    .build()
+                    .find();
+        }else if(local == 2){
+            cities = cityBox.query().equal(City_.budget, budget)
+                    .and()
+                    .less(City_.tourists, tourist+1)
+                    .and()
+                    .equal(City_.temperature, temperature)
+                    .build().find();
+        }else if(temperature == 3){
+            if(local == 0){
+                cities = cityBox.query().equal(City_.local, false)
+                        .and()
+                        .less(City_.budget, budget+1)
+                        .and()
+                        .less(City_.tourists, tourist+1)
+                        .build().find();
+            }else{
+                cities = cityBox.query().equal(City_.local, true)
+                        .and()
+                        .less(City_.budget, budget+1)
+                        .and()
+                        .less(City_.tourists, tourist+1)
+                        .build().find();
+            }
+        }else{
+            if(local == 0){
+                cities = cityBox.query().equal(City_.local, false)
+                        .and()
+                        .less(City_.budget, budget+1)
+                        .and()
+                        .less(City_.tourists, tourist+1)
+                        .and()
+                        .equal(City_.temperature, temperature)
+                        .build().find();
+            }else{
+                cities = cityBox.query().equal(City_.local, true)
+                        .and()
+                        .less(City_.budget, budget+1)
+                        .and()
+                        .less(City_.tourists, tourist+1)
+                        .and()
+                        .equal(City_.temperature, temperature)
+                        .build().find();
+            }
+        }
+
+        return filter(kind, activities, cities);
+    }
+
+    private List<City> filter(int kind, int activities, List<City> cities){
+        /*it filter the cities returned in base of the choices of the users*/
+        Kind k = kindManager.getKind(kind);
+        Attraction a = null;
+        /*user may want to do all activities possible (aka 'activities' = 4)*/
+        if(activities<4)
+            a = attractionManager.getAttraction(activities);
+
+        /*  get cities where city.kind has kind and city.activities has activities*/
+        List<City> toBeReturned = new ArrayList<>();
+        if(a!=null) {
+            for (City c : cities) {
+                if (c.kinds.contains(k) && c.activities.contains(a))
+                    toBeReturned.add(c);
+            }
+        }
+        else{
+            for (City c : cities) {
+                if (c.kinds.contains(k))
+                    toBeReturned.add(c);
+            }
+        }
+        return toBeReturned;
     }
 }
 
