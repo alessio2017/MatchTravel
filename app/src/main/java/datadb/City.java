@@ -12,7 +12,7 @@ public class City {
     public String name;
     //descrizione città
     public String description;
-    //può contenere i tag: Sea, Mountain, Art, Food, Romantic
+    //può contenere i tag: Sea, mountain, art, Food, romantic
     public ToMany<Kind> kinds;
     //se la città è nello stato o all'estero
     public boolean local;

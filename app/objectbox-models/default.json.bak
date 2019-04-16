@@ -82,7 +82,7 @@
     },
     {
       "id": "4:8788638811422916175",
-      "lastPropertyId": "6:1304468019224272098",
+      "lastPropertyId": "8:6375095038052856041",
       "name": "User",
       "properties": [
         {
@@ -106,8 +106,12 @@
           "name": "description"
         },
         {
-          "id": "6:1304468019224272098",
-          "name": "loggedIn"
+          "id": "7:2065384018351297601",
+          "name": "status"
+        },
+        {
+          "id": "8:6375095038052856041",
+          "name": "country"
         }
       ],
       "relations": [
@@ -126,7 +130,9 @@
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    1304468019224272098
+  ],
   "retiredRelationUids": [],
   "version": 1
 }
