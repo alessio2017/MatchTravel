@@ -18,10 +18,17 @@
     <string name="btn_find_destinations">button to find destination doing a survey</string>
 
     <string name="kindtrip">Which kind of trip you\n like to do this time? </string>
-
+    <string name="typetravel">Do you like travel abroad\n or locally?</string>
+    <string name="budget">Which is your budget?</string>
+    <string name="arrive">What would you like to do once arrived?</string>
+    <string name="tourists">How much you are annoyed by the tourists?</string>
+    <string name="weather">Hot or cold?</string>
 
     <!--Le stringe qui sotto sono utilizzate per le sharedPreference. Non cambiare MAI.-->
     <string name="sharedPref_file">myPrefFile</string>
     <string name="sharedPref_db_init">dbIsInitialize</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

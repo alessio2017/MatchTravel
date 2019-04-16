@@ -1,5 +1,6 @@
 package matchtravel.com.matchtravel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,6 +35,8 @@ public class HomeFirstLogin extends AppCompatActivity {
                 * aggiornata la descrizione che l'utente inserisce nel DB. Nota: se l'utente preme il
                 * bottone senza inserire nulla di default viene inserito: " Just joined this
                 * application! write me " , questo per chi ha Android API 26+ */
+                Intent goToSurvey = new Intent(HomeFirstLogin.this, SurveyActivity.class);
+                startActivity(goToSurvey);
             }
         });
 

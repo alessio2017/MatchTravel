@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/fragment_question1">
+
+    <TextView
+        android:id="@+id/kindtrip1"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/covesbold"
+        android:gravity="center"
+        android:text="@string/kindtrip"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="40sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/sea_lake_1"
+                android:layout_width="340dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/sea_lake" />
+
+            <ImageView
+                android:id="@+id/sea_lake_w"
+                android:layout_width="191dp"
+                android:layout_height="57dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/sea_or_lake" />
+
+            <ImageView
+                android:id="@+id/mountain_1"
+                android:layout_width="340dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="160dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/mountain_1" />
+
+            <ImageView
+                android:id="@+id/mountain_w"
+                android:layout_width="191dp"
+                android:layout_height="57dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/mountain" />
+
+            <ImageView
+                android:id="@+id/art_1"
+                android:layout_width="340dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/art_1" />
+
+            <ImageView
+                android:id="@+id/art_w"
+                android:layout_width="191dp"
+                android:layout_height="57dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="340dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/art" />
+
+            <ImageView
+                android:id="@+id/food_1"
+                android:layout_width="340dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="440dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/food_1" />
+
+            <ImageView
+                android:id="@+id/food_w"
+                android:layout_width="191dp"
+                android:layout_height="57dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="470dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/food"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/romantic_1"
+                android:layout_width="340dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="580dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/romantic_1" />
+
+            <ImageView
+                android:id="@+id/romantic_w"
+                android:layout_width="191dp"
+                android:layout_height="57dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="600dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/romantic"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</LinearLayout>
