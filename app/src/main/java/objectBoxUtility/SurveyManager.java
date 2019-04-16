@@ -72,7 +72,7 @@ public class SurveyManager {
                     doBudget=false;
             }else if(!doBudget && !maxTouristReached){
                 t--;
-                if(t>0)
+                if(t>=0)
                     otherCities = cityManager.getCity(kind, local, budget, activities, t, temperature);
                 else
                     maxTouristReached = true;
@@ -82,7 +82,7 @@ public class SurveyManager {
                 canContinue = false;
             }
 
-            if(otherCities!=null){
+            if(otherCities!=null && canContinue){
                 List<City> toDelete = new ArrayList<>();
                 if(otherCities.size() < cities.size()){
                     for (City c: otherCities){
@@ -100,9 +100,7 @@ public class SurveyManager {
                 otherCities.removeAll(toDelete);
                 cities.addAll(otherCities);
             }
-
         }
-
         return cities;
     }
 
