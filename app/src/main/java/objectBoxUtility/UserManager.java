@@ -7,6 +7,7 @@ import java.util.List;
 
 import datadb.City;
 import datadb.User;
+import datadb.User_;
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
 
@@ -176,7 +177,7 @@ public class UserManager {
         userBox.put(u);
 
         u = new User();
-        u.name="Mark";
+        u.name="Marco";
         u.surname="Zucckie";
         cal.set(1979,5,10);
         u.age = cal.getTime();
@@ -219,5 +220,50 @@ public class UserManager {
             u.destinations.add(c);
         }
         userBox.put(u);
+
+        //utenti veri
+        u = new User();
+        u.name="Daniele";
+        u.surname="Buonadonna";
+        cal.set(1995,10,20);
+        u.age = cal.getTime();
+        u.status = STATUS_RELANTIONSHIP;
+        u.country = COUNTRY_ITA;
+        u.description = "";
+        destinations = null;
+
+        u = new User();
+        u.name="Umberto";
+        u.surname="di Canito";
+        cal.set(1994,5,19);
+        u.age = cal.getTime();
+        u.status = STATUS_RELANTIONSHIP;
+        u.country = COUNTRY_ITA;
+        u.description = "";
+        destinations = null;
+
+        u = new User();
+        u.name="Alessio";
+        u.surname="Fiorenza";
+        //TODO: quando sei nato?
+        cal.set(1995,10,20);
+        u.age = cal.getTime();
+        u.status = STATUS_RELANTIONSHIP;
+        u.country = COUNTRY_ITA;
+        u.description = "";
+        destinations = null;
+    }
+
+    public User getRealUser(){
+        /*retrieve the default real user*/
+        return userBox.query().equal(User_.name, "Daniele").build().findFirst();
+    }
+
+    public User getRealUser(int matricola){
+        if(matricola == 1851685)
+            return userBox.query().equal(User_.name, "Umberto").build().findFirst();
+        if(matricola == 1661504)
+            return userBox.query().equal(User_.name, "Alessio").build().findFirst();
+        return getRealUser();
     }
 }
