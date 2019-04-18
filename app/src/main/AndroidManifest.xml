@@ -21,6 +21,9 @@
         </activity>
         <activity android:name=".HomeFirstLoginActivity" />
         <activity android:name=".WishListActivity" />
+        <activity android:name=".Result" />
+
+
     </application>
 
 </manifest>
