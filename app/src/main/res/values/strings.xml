@@ -29,5 +29,7 @@
     <string name="search">Search</string>
     <string name="survey">Survey</string>
     <string name="profile">Profile</string>
+    <string name="search_your_destination">Search your destination</string>
+    <string name="type_your_city">Type your city...</string>
 
 </resources>
