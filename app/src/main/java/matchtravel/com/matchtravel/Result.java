@@ -1,5 +1,6 @@
 package matchtravel.com.matchtravel;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,5 +13,8 @@ public class Result extends AppCompatActivity {
 
         String str = getIntent().getExtras().getString("results");
         System.out.println(str);
+
+        Intent goToWishList = new Intent(Result.this, WishListActivity.class);
+        startActivity(goToWishList);
     }
 }

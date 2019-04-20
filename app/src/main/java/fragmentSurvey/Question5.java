@@ -1,20 +1,23 @@
-package matchtravel.com.matchtravel;
+package fragmentSurvey;
 
-import android.content.Context;
-import android.net.Uri;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import matchtravel.com.matchtravel.R;
+import objectBoxUtility.*;
 
 
 public class Question5 extends Fragment {
     private SurveyManager sur;
 
+    private ViewPager pager;
     private ImageView Not;
     private ImageView Care;
     private ImageView Bit;
@@ -24,6 +27,11 @@ public class Question5 extends Fragment {
 
     public Question5() {
         // Required empty public constructor
+    }
+
+    @SuppressLint("ValidFragment")
+    public Question5(SurveyManager sur){
+        this.sur = sur;
     }
 
     public void setSur(SurveyManager sur){
@@ -40,6 +48,8 @@ public class Question5 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_question5, container, false);
+        pager = container.findViewById(R.id.pager);
+
         Not = (ImageView) view.findViewById(R.id.not_1);
         Care = (ImageView) view.findViewById(R.id.care_1);
         Bit = (ImageView) view.findViewById(R.id.bit_1);
@@ -50,14 +60,7 @@ public class Question5 extends Fragment {
             @Override
             public void onClick(View view) {
                 sur.setAnswer5(0);
-                Fragment f = new Question6();
-                ((Question6) f).setSur(sur);
-                FragmentTransaction t = getFragmentManager().beginTransaction();
-                t.replace(R.id.fragment, f);
-                t.commit();
-                /* qui va gestito l'intent che porta all'activity per la seconda domanda
-                sur.setAnswer1(0)
-                 */
+                pager.setCurrentItem(5);
             }
         });
 
@@ -65,14 +68,7 @@ public class Question5 extends Fragment {
             @Override
             public void onClick(View view) {
                 sur.setAnswer5(1);
-                Fragment f = new Question6();
-                ((Question6) f).setSur(sur);
-                FragmentTransaction t = getFragmentManager().beginTransaction();
-                t.replace(R.id.fragment, f);
-                t.commit();
-                /* qui va gestito l'intent che porta all'activity per la seconda domanda
-                sur.setAnswer1(0)
-                 */
+                pager.setCurrentItem(5);
             }
         });
 
@@ -80,14 +76,7 @@ public class Question5 extends Fragment {
             @Override
             public void onClick(View view) {
                 sur.setAnswer5(2);
-                Fragment f = new Question6();
-                ((Question6) f).setSur(sur);
-                FragmentTransaction t = getFragmentManager().beginTransaction();
-                t.replace(R.id.fragment, f);
-                t.commit();
-                /* qui va gestito l'intent che porta all'activity per la seconda domanda
-                sur.setAnswer1(0)
-                 */
+                pager.setCurrentItem(5);
             }
         });
 
@@ -95,14 +84,7 @@ public class Question5 extends Fragment {
             @Override
             public void onClick(View view) {
                 sur.setAnswer5(3);
-                Fragment f = new Question6();
-                ((Question6) f).setSur(sur);
-                FragmentTransaction t = getFragmentManager().beginTransaction();
-                t.replace(R.id.fragment, f);
-                t.commit();
-                /* qui va gestito l'intent che porta all'activity per la seconda domanda
-                sur.setAnswer1(0)
-                 */
+                pager.setCurrentItem(5);
             }
         });
         return view;

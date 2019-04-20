@@ -23,6 +23,7 @@
     <string name="arrive">What would you like to do once arrived?</string>
     <string name="tourists">How much you are annoyed by the tourists?</string>
     <string name="weather">Hot or cold?</string>
+    <string name="profileown">Your profile</string>
 
 
     <!--Le stringe qui sotto sono utilizzate per le sharedPreference. Non cambiare MAI.-->

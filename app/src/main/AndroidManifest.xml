@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SurveyActivity"></activity>
+        <activity android:name=".SurveyActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +22,6 @@
         <activity android:name=".HomeFirstLoginActivity" />
         <activity android:name=".WishListActivity" />
         <activity android:name=".Result" />
-
-
     </application>
 
 </manifest>
