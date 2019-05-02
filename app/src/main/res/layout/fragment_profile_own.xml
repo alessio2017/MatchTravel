@@ -13,12 +13,14 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp">
+            android:layout_marginTop="0dp"
+            android:fillViewport="true">   <!-- permette di ereditare le dimensioni al layout interno -->
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/profileown"
                     android:layout_width="match_parent"
@@ -31,19 +33,13 @@
                     android:textColor="@android:color/black"
                     android:textSize="30sp" />
 
-
-
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/image_profileown"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="50dp"
-                    android:contentDescription="@string/user_profile_pic"
-                    android:maxWidth="100dp"
-                    android:maxHeight="100dp"
-                    android:src="@drawable/mypic"
-                    android:visibility="visible" />
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/mypic" />
 
                 <TextView
                     android:id="@+id/nameown"
@@ -63,14 +59,15 @@
                     android:id="@+id/ageown"
                     android:layout_width="60dp"
                     android:layout_height="70dp"
-                    android:layout_marginTop="100dp"
                     android:layout_marginStart="150dp"
+                    android:layout_marginTop="100dp"
                     android:fontFamily="@font/covesbold"
                     android:gravity="center"
                     android:text="39 yo"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/stateown"
                     android:layout_width="80dp"
@@ -83,12 +80,13 @@
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/nationown"
                     android:layout_width="130dp"
                     android:layout_height="70dp"
-                    android:layout_marginTop="100dp"
                     android:layout_marginStart="250dp"
+                    android:layout_marginTop="100dp"
                     android:fontFamily="@font/covesbold"
                     android:gravity="center"
                     android:text="from UK"
@@ -101,9 +99,10 @@
                     android:id="@+id/facebook"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/facebook"
                     android:layout_marginStart="150dp"
-                    android:layout_marginTop="160dp"/>
+                    android:layout_marginTop="160dp"
+                    android:background="@drawable/facebook" />
+
                 <Button
                     android:id="@+id/instagram"
                     android:layout_width="60dp"
@@ -111,131 +110,104 @@
                     android:layout_marginStart="225dp"
                     android:layout_marginTop="160dp"
                     android:background="@drawable/instagram" />
+
                 <Button
                     android:id="@+id/mail"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/mail"
                     android:layout_marginStart="300dp"
-                    android:layout_marginTop="160dp" />
+                    android:layout_marginTop="160dp"
+                    android:background="@drawable/mail" />
 
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="340dp"
-                    android:layout_height="210dp"
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:layout_alignEnd="@+id/nationown"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="250dp"
-                    android:layout_marginStart="35dp"
-                    android:text="Hi! I do not speak much in front of people…
+                    app:cardBackgroundColor="@color/light_grey"
+                    app:cardCornerRadius="7dp"
+                    app:cardElevation="12dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="340dp"
+                        android:layout_height="180dp"
+                        android:layout_marginLeft="3dp"
+
+                        android:fontFamily="@font/covesbold"
+                        android:text="Hi! I do not speak much in front of people…
 I'm not shy, i just do not talk, although most people say I am one of the most funny people on the planet and also that i remember them a famous spy:Mr. English. Never hear of...
 "
-                    android:textSize="24dp"
-                    android:fontFamily="@font/covesbold"
-                    android:background="@drawable/description"
-                    android:visibility="visible" />
+                        android:textSize="22dp"
+                        android:visibility="visible" />
 
+                </android.support.v7.widget.CardView>
 
-                <ImageView
-
-                    android:layout_width="340dp"
-                    android:layout_height="230dp"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginTop="530dp"
-                    android:background="@drawable/description" />
-
-
-                <TextView
-                    android:id="@+id/edit_own"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="560dp"
-                    android:fontFamily="@font/covesbold"
-                    android:text="Edit"
-                    android:textSize="30dp"
-                    android:visibility="visible" />
-
-                <ImageView
-                    android:layout_width="290dp"
-                    android:layout_height="2dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="610dp"
-                    android:background="@drawable/line" />
-
-                <TextView
-                    android:id="@+id/privacy_own"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="620dp"
-                    android:fontFamily="@font/covesbold"
-                    android:text="Privacy conditions"
-                    android:textSize="30dp"
-                    android:visibility="visible" />
-
-                <ImageView
-                    android:layout_width="290dp"
-                    android:layout_height="2dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="670dp"
-                    android:background="@drawable/line" />
-
-                <TextView
-                    android:id="@+id/terms"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="680dp"
-                    android:fontFamily="@font/covesbold"
-                    android:text="Terms"
-                    android:textSize="30dp"
-                    android:visibility="visible" />
-                <RelativeLayout
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardinfo"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="680dp" />
+                    android:layout_height="130dp"
+                    android:layout_alignEnd="@+id/nationown"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="480dp"
+                    app:cardBackgroundColor="@color/light_grey"
+                    app:cardCornerRadius="7dp"
+                    app:cardElevation="12dp"
+                    app:cardUseCompatPadding="false">
+
+                    <TextView
+                        android:id="@+id/edit_own"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/covesbold"
+                        android:text="Edit"
+                        android:textSize="28dp"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="43dp"
+                        android:background="@drawable/line" />
+
+                    <TextView
+                        android:id="@+id/privacy_own"
+                        android:layout_width="340dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="45dp"
+                        android:fontFamily="@font/covesbold"
+                        android:text="Privacy conditions"
+                        android:textSize="28dp"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="80dp"
+                        android:background="@drawable/line" />
+
+                    <TextView
+                        android:id="@+id/terms"
+                        android:layout_width="340dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="82dp"
+                        android:fontFamily="@font/covesbold"
+                        android:text="Terms"
+                        android:textSize="28dp"
+                        android:visibility="visible" />
+
+                </android.support.v7.widget.CardView>
+
             </RelativeLayout>
         </ScrollView>
-        <!--
-        <ImageView
-            android:id="@+id/barra"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginTop="640dp"
-            android:background="@drawable/barra"
-            android:visibility="visible" />
 
-        <Button
-            android:id="@+id/home_own"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="645dp"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/icon_home"/>
-        <Button
-            android:id="@+id/search_own"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="645dp"
-            android:layout_marginStart="110dp"
-            android:background="@drawable/icon_search"/>
-
-        <Button
-            android:id="@+id/survey_own"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="645dp"
-            android:layout_marginStart="210dp"
-            android:background="@drawable/icon_survey"/>
-
-
-        <Button
-
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="645dp"
-            android:layout_marginStart="310dp"
-            android:background="@drawable/icon_home_color"
-            /> -->
     </RelativeLayout>
