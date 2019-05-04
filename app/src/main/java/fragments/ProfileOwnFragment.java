@@ -1,18 +1,27 @@
 package fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import javax.annotation.Nullable;
 
+import datadb.User;
 import matchtravel.com.matchtravel.R;
 import matchtravel.com.matchtravel.SurveyActivity;
+import matchtravel.com.matchtravel.WishListActivity;
+import objectBoxUtility.ObjectBox;
+import objectBoxUtility.UserManager;
 
 public class ProfileOwnFragment extends Fragment {
     private Button facebook;
@@ -31,11 +40,21 @@ public class ProfileOwnFragment extends Fragment {
     private TextView nationown;
 
     private TextView description;
+
+    private User currentUser;
+    private UserManager userManager;
+    private Context context;
+
+    OnChangeCurrentUserListener callback;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile_own, container, false);
+
+        this.userManager = new UserManager(ObjectBox.get());
+        this.context = getContext();
 
         facebook = (Button) view.findViewById(R.id.facebook);
         mail = (Button) view.findViewById(R.id.mail);
@@ -116,10 +135,76 @@ public class ProfileOwnFragment extends Fragment {
         edit_own.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                //TODO: ora è possibile cambiare immagine e descrizione (o solo descrizione?)
+            }
+        });
 
+        privacy_own.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //creating and inflating popup menu to change current user
+                PopupMenu popup = new PopupMenu(getContext(), privacy_own);
+                popup.getMenuInflater().inflate(R.menu.popup_current_user, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        //retrieve desidered user
+                        User user = userManager.getRealUser("" + item.getTitle());
+                        //retrieve shared preference
+                        SharedPreferences sharedPreferences = context.
+                                getSharedPreferences(getString(R.string.sharedPref_file),
+                                        Context.MODE_PRIVATE);
+                        //retrieve current user
+                        int currentUserId = sharedPreferences.getInt(
+                                getString(R.string.sharedPref_current_user),
+                                0);
+                        //update current user
+                        int newId;
+                        if(user.getName().equals("Daniele"))
+                            newId = 0;
+                        else if(user.getName().equals("Alessio"))
+                            newId = 1;
+                        else
+                            newId = 2;
+
+                        if(newId != currentUserId){
+                            //the activity now have the new current user
+                            callback.onUserSelected(user);
+                            setCurrentUser(user);
+                            //the sharedPreferences are updated
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putInt(context.getString(R.string.sharedPref_current_user), newId);
+                            editor.commit();
+
+                            Log.i("CAMBIO PROFILO", "RIUSCITO");
+                        }
+                        else
+                            Log.i("CAMBIO PROFILO", "NESSUN CAMBIO. PROFILO GIA' MEMORIZZATO");
+
+                        return true;
+                    }
+                });
+
+                popup.show();
             }
         });
 
         return view;
+    }
+
+    public void setCurrentUser(User user){
+        if(user!=null)
+            this.currentUser = user;
+        //TODO: update delle varie view
+    }
+
+    /*interfaccia necessaria per comunicare all'activity del cambio di utente*/
+    public interface OnChangeCurrentUserListener{
+        void onUserSelected(User user);
+    }
+    /*metodo di utility dell'interfaccia*/
+    public void setOnChangeCurrentUserListener(OnChangeCurrentUserListener listener){
+        this.callback = listener;
     }
 }

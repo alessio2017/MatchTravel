@@ -982,5 +982,11 @@ public class CityManager {
         }
         return toBeReturned;
     }
+
+    public City getCity(String name){
+        /*Ritorna la città associata al nome. Notare che non compie azioni di modifica
+        * della stringa di ricerca.*/
+        return cityBox.query().equal(City_.name, name).build().findFirst();
+    }
 }
 
