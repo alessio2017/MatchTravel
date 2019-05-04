@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import javax.annotation.Nullable;
 
+import datadb.User;
 import matchtravel.com.matchtravel.R;
 import matchtravel.com.matchtravel.SurveyActivity;
 
@@ -31,6 +32,9 @@ public class ProfileOwnFragment extends Fragment {
     private TextView nationown;
 
     private TextView description;
+
+    private User currentUser;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -121,5 +125,11 @@ public class ProfileOwnFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public void setCurrentUser(User user){
+        if(user!=null)
+            this.currentUser = user;
+        //TODO: update delle varie view
     }
 }

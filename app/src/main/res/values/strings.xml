@@ -29,6 +29,7 @@
     <!--Le stringe qui sotto sono utilizzate per le sharedPreference. Non cambiare MAI.-->
     <string name="sharedPref_file">myPrefFile</string>
     <string name="sharedPref_db_init">dbIsInitialize</string>
+    <string name="sharedPref_current_user">currentUser</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="home">Home</string>
