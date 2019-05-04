@@ -231,6 +231,7 @@ public class UserManager {
         u.country = COUNTRY_ITA;
         u.description = "";
         destinations = null;
+        userBox.put(u);
 
         u = new User();
         u.name="Umberto";
@@ -241,29 +242,44 @@ public class UserManager {
         u.country = COUNTRY_ITA;
         u.description = "";
         destinations = null;
+        userBox.put(u);
 
         u = new User();
         u.name="Alessio";
         u.surname="Fiorenza";
-        //TODO: quando sei nato?
-        cal.set(1995,10,20);
+        cal.set(1995,9,10);
         u.age = cal.getTime();
         u.status = STATUS_RELANTIONSHIP;
         u.country = COUNTRY_ITA;
         u.description = "";
         destinations = null;
+        userBox.put(u);
     }
 
-    public User getRealUser(){
-        /*retrieve the default real user*/
-        return userBox.query().equal(User_.name, "Daniele").build().findFirst();
-    }
-
-    public User getRealUser(int matricola){
-        if(matricola == 1851685)
-            return userBox.query().equal(User_.name, "Umberto").build().findFirst();
-        if(matricola == 1661504)
+    public User getRealUser(String user){
+        /*Nella pagina di profilo, se si clicca su "Terms"
+        * si ha la possibilità di swicthare ad un altro user,
+        * in questo caso uno tra "Daniele", "Alessio" o "Umberto"*/
+        if(user.equals("Daniele"))
+            return userBox.query().equal(User_.name, "Daniele").build().findFirst();
+        if(user.equals("Alessio"))
             return userBox.query().equal(User_.name, "Alessio").build().findFirst();
-        return getRealUser();
+        return userBox.query().equal(User_.name, "Umberto").build().findFirst();
+    }
+
+    public List<User> getUsersForCity(City city){
+        /*Ritorna tutti gli utenti associati ad una città*/
+        List<User> wantedUsers = new ArrayList<>();
+        List<User> users = userBox.getAll();
+        for(User u : users){
+            if(u.destinations.contains(city))
+                wantedUsers.add(u);
+        }
+        return wantedUsers;
+    }
+
+    public User getUser(String name, String surname){
+        /*Get fake user from database, based on the complete name*/
+        return userBox.query().equal(User_.name, name).equal(User_.surname, surname).build().findFirst();
     }
 }
