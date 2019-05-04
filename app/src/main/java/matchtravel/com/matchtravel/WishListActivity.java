@@ -20,7 +20,7 @@ import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 
 
-public class WishListActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class WishListActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, ProfileOwnFragment.OnChangeCurrentUserListener {
 
     private BottomNavigationView bottomNavigationView;
     private UserManager userManager;
@@ -96,5 +96,20 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
         }
 
         return loadFragment(fragment);
+    }
+
+    /*metodo derivante dall'interfaccia OnChangeCurrentUser*/
+    @Override
+    public void onUserSelected(User user) {
+        this.currentUser = user;
+    }
+
+    /*metodo derivante dall'interfaccia OnChangeCurrentUser*/
+    @Override
+    public void onAttachFragment(Fragment fragment){
+        if(fragment instanceof ProfileOwnFragment){
+            ProfileOwnFragment profileOwnFragment = (ProfileOwnFragment) fragment;
+            profileOwnFragment.setOnChangeCurrentUserListener(this);
+        }
     }
 }
