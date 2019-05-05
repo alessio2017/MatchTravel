@@ -73,4 +73,5 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
 
         return loadFragment(fragment);
     }
+
 }
