@@ -86,11 +86,10 @@ public class SearchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String s = al.get(position); //citta nella posizione del list item cliccato
+                String s = aa.getItem(position);
+
                 //TODO intent che va alla pagina della città cliccata
                 Toast.makeText(getContext().getApplicationContext(), "presto potrai andare al profilo della città: " + s, Toast.LENGTH_LONG).show();
-
-
 
             }
         });
@@ -99,7 +98,7 @@ public class SearchFragment extends Fragment {
         search = (EditText) view.findViewById(R.id.search_bar);
 
 
-        // Capture Text in EditText
+        // Filtro search sulla lista
         search.addTextChangedListener(new TextWatcher() {
 
             @Override
