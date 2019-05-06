@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 loadingBar.setVisibility(View.VISIBLE);
                 Toast.makeText(getApplicationContext(), "Logged with google!", Toast.LENGTH_LONG).show();
-                loginMethodProvvisorio(); //va alla wishlist, ma é una soluzione provvisoria per controllare il funzionamento di Wishlist
+                loginMethod();
             }
         });
 
@@ -97,15 +97,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void loginMethod(){
-        //TODO: se l'utente lo ha già fatto, non deve ripetere il primo questionario. Usare una sharedPref.
-        Intent goToHomeFirstLogin = new Intent(LoginActivity.this, HomeFirstLoginActivity.class);
-        startActivity(goToHomeFirstLogin);
-    }
-
-    public void loginMethodProvvisorio(){
-        //TODO: se l'utente lo ha già fatto, non deve ripetere il primo questionario. Usare una sharedPref.
-        Intent goToWishList = new Intent(LoginActivity.this, WishListActivity.class);
-        startActivity(goToWishList);
+        //se l'utente lo ha già fatto, non deve ripetere il primo questionario
+        SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.sharedPref_file), MODE_PRIVATE);
+        boolean firstLogin = sharedPreferences.getBoolean(getString(R.string.sharedPref_firstLogin), true);
+        if(firstLogin){
+            //changing shared pref. Now the user won't do again the first survey
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(getString(R.string.sharedPref_firstLogin), false);
+            editor.commit();
+            //going to the new activity
+            Intent goToHomeFirstLogin = new Intent(LoginActivity.this, HomeFirstLoginActivity.class);
+            startActivity(goToHomeFirstLogin);
+        }
+        else{
+            Intent goToHome = new Intent(LoginActivity.this, WishListActivity.class);
+            startActivity(goToHome);
+        }
     }
 
 

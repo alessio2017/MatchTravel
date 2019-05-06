@@ -30,6 +30,7 @@
     <string name="sharedPref_file">myPrefFile</string>
     <string name="sharedPref_db_init">dbIsInitialize</string>
     <string name="sharedPref_current_user">currentUser</string>
+    <string name="sharedPref_firstLogin">isFirstLogin</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="home">Home</string>
