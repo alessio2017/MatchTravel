@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeFirstLoginActivity" />
-        <activity android:name=".WishListActivity" />
+        <activity android:name=".WishListActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Result" />
     </application>
 
