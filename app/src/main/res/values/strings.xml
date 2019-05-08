@@ -25,7 +25,7 @@
     <string name="weather">Hot or cold?</string>
     <string name="profileown">Your profile</string>
 
-
+    <string name="textEmptyHome">Oh, oh. Seems like you have not any favourite destination yet.\nTake the survey or look for a new city!</string>
     <!--Le stringe qui sotto sono utilizzate per le sharedPreference. Non cambiare MAI.-->
     <string name="sharedPref_file">myPrefFile</string>
     <string name="sharedPref_db_init">dbIsInitialize</string>

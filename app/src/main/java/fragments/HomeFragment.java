@@ -62,6 +62,8 @@ public class HomeFragment extends Fragment {
             cityUserMap.put(c, usersWithTheSameDestination);
         }
         recyclerViewAdapter.setUserPerCity(cityUserMap);
+
+        //initialize recyclerView
         RecyclerView recyclerView;
         try{
             recyclerView = layout.findViewById(R.id.wishlistRecyclerView);
@@ -75,5 +77,11 @@ public class HomeFragment extends Fragment {
 
         //notifying to the adapter that the set is changed
         recyclerViewAdapter.notifyDataSetChanged();
+
+        if(currentUser.destinations.size() == 0){
+            layout.findViewById(R.id.textViewHome).setVisibility(View.VISIBLE);
+        }else{
+            layout.findViewById(R.id.textViewHome).setVisibility(View.GONE);
+        }
     }
 }
