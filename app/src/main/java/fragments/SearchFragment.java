@@ -103,22 +103,17 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable arg0) {
-                // TODO Auto-generated method stub
                 String text = search.getText().toString().toLowerCase(Locale.getDefault());
                 aa.getFilter().filter(text);
             }
 
             @Override
             public void beforeTextChanged(CharSequence arg0, int arg1,
-                                          int arg2, int arg3) {
-                // TODO Auto-generated method stub
-            }
+                                          int arg2, int arg3) {}
 
             @Override
             public void onTextChanged(CharSequence arg0, int arg1, int arg2,
-                                      int arg3) {
-                // TODO Auto-generated method stub
-            }
+                                      int arg3) {}
         });
 
 
