@@ -38,5 +38,12 @@
     <string name="profile">Profile</string>
     <string name="search_your_destination">Search your destination</string>
     <string name="type_your_city">Type your city...</string>
+    <string name="yourprofile">Your Profile</string>
+    <string name="edit">Edit</string>
+    <string name="privacy_and_conditions">Privacy and conditions</string>
+    <string name="terms">Terms</string>
+    <string name="facebook_social_button">facebook social button</string>
+    <string name="instagram_social_button">instagram social button</string>
+    <string name="mail_social_button">mail social button</string>
 
 </resources>

@@ -1,213 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/pattern_background_blurred_up_right">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pattern_background_blurred_up_right">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:fillViewport="true">   <!-- permette di ereditare le dimensioni al layout interno -->
+    <TextView
+        android:id="@+id/lbl_yourprofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/yourprofile"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_profilepic"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="70dp"
+        android:contentDescription="@string/user_profile_pic"
+        android:maxWidth="120dp"
+        android:maxHeight="120dp"
+        android:src="@drawable/img_user"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/profileown"
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="-10dp"
-                    android:fontFamily="@font/covesbold"
-                    android:gravity="center"
-                    android:text="@string/profileown"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="30sp" />
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/name_of_the_users"
+        android:textColor="@android:color/black"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_yourprofile" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_profileown"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="60dp"
-                    android:src="@drawable/mypic" />
+    <TextView
+        android:id="@+id/ageown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/age_user"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
-                <TextView
-                    android:id="@+id/nameown"
-                    android:layout_width="313dp"
-                    android:layout_height="86dp"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="50dp"
-                    android:fontFamily="@font/covesbold"
-                    android:gravity="center"
-                    android:text="Mr.Bean"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="40sp" />
+    <TextView
+        android:id="@+id/stateown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/status_user"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/ageown" />
 
+    <TextView
+        android:id="@+id/nationown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/country_user"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/stateown" />
 
-                <TextView
-                    android:id="@+id/ageown"
-                    android:layout_width="60dp"
-                    android:layout_height="70dp"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginTop="100dp"
-                    android:fontFamily="@font/covesbold"
-                    android:gravity="center"
-                    android:text="39 yo"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+    <EditText
+        android:id="@+id/edit_own"
+        android:layout_width="0dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints="Just joined this application! write me"
+        android:background="@xml/rounded_edittext"
+        android:editable="false"
+        android:fontFamily="@font/covesbold"
+        android:gravity="top"
+        android:inputType="none"
+        android:lines="5"
+        android:maxLength="200"
+        android:singleLine="false"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/facebook"
+        tools:ignore="MissingConstraints" />
 
-                <TextView
-                    android:id="@+id/stateown"
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_marginStart="200dp"
-                    android:layout_marginTop="100dp"
-                    android:fontFamily="@font/covesbold"
-                    android:gravity="center"
-                    android:text="Single"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@null"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/edit"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_own" />
 
-                <TextView
-                    android:id="@+id/nationown"
-                    android:layout_width="130dp"
-                    android:layout_height="70dp"
-                    android:layout_marginStart="250dp"
-                    android:layout_marginTop="100dp"
-                    android:fontFamily="@font/covesbold"
-                    android:gravity="center"
-                    android:text="from UK"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+    <Button
+        android:id="@+id/privacy_own"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/privacy_and_conditions"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit" />
 
+    <Button
+        android:id="@+id/terms"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/terms"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/privacy_own" />
 
-                <Button
-                    android:id="@+id/facebook"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginTop="160dp"
-                    android:background="@drawable/facebook" />
+    <ImageView
+        android:id="@+id/facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/facebook_social_button"
+        android:minWidth="35dp"
+        android:minHeight="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:srcCompat="@drawable/facebook" />
 
-                <Button
-                    android:id="@+id/instagram"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="225dp"
-                    android:layout_marginTop="160dp"
-                    android:background="@drawable/instagram" />
+    <ImageView
+        android:id="@+id/instagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/instagram_social_button"
+        android:minWidth="35dp"
+        android:minHeight="35dp"
+        app:layout_constraintStart_toEndOf="@+id/facebook"
+        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:srcCompat="@drawable/instagram" />
 
-                <Button
-                    android:id="@+id/mail"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="300dp"
-                    android:layout_marginTop="160dp"
-                    android:background="@drawable/mail" />
+    <ImageView
+        android:id="@+id/mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mail_social_button"
+        android:minWidth="35dp"
+        android:minHeight="35dp"
+        app:layout_constraintStart_toEndOf="@+id/instagram"
+        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:srcCompat="@drawable/mail" />
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card"
-                    android:layout_width="match_parent"
-                    android:layout_height="175dp"
-                    android:layout_alignEnd="@+id/nationown"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="250dp"
-                    app:cardBackgroundColor="@color/light_grey"
-                    app:cardCornerRadius="7dp"
-                    app:cardElevation="12dp"
-                    app:cardPreventCornerOverlap="true">
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/black"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/privacy_own"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit" />
 
-                    <TextView
-                        android:id="@+id/description"
-                        android:layout_width="340dp"
-                        android:layout_height="180dp"
-                        android:layout_marginLeft="3dp"
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/black"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/terms"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/privacy_own" />
 
-                        android:fontFamily="@font/covesbold"
-                        android:text="Hi! I do not speak much in front of people…
-I'm not shy, i just do not talk, although most people say I am one of the most funny people on the planet and also that i remember them a famous spy:Mr. English. Never hear of...
-"
-                        android:textSize="22dp"
-                        android:visibility="visible" />
+</android.support.constraint.ConstraintLayout>
 
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/cardinfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:layout_alignEnd="@+id/nationown"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="480dp"
-                    app:cardBackgroundColor="@color/light_grey"
-                    app:cardCornerRadius="7dp"
-                    app:cardElevation="12dp"
-                    app:cardUseCompatPadding="false">
-
-                    <TextView
-                        android:id="@+id/edit_own"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/covesbold"
-                        android:text="Edit"
-                        android:textSize="28dp"
-                        android:visibility="visible" />
-
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="2dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginTop="43dp"
-                        android:background="@drawable/line" />
-
-                    <TextView
-                        android:id="@+id/privacy_own"
-                        android:layout_width="340dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginTop="45dp"
-                        android:fontFamily="@font/covesbold"
-                        android:text="Privacy conditions"
-                        android:textSize="28dp"
-                        android:visibility="visible" />
-
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="2dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginTop="80dp"
-                        android:background="@drawable/line" />
-
-                    <TextView
-                        android:id="@+id/terms"
-                        android:layout_width="340dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginTop="82dp"
-                        android:fontFamily="@font/covesbold"
-                        android:text="Terms"
-                        android:textSize="28dp"
-                        android:visibility="visible" />
-
-                </android.support.v7.widget.CardView>
-
-            </RelativeLayout>
-        </ScrollView>
-
-    </RelativeLayout>
+</ScrollView>

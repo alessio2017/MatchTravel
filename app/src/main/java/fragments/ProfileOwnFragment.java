@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -24,12 +25,9 @@ import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 
 public class ProfileOwnFragment extends Fragment {
-    private Button facebook;
-    private Button mail;
-    private Button instagram;
-    //private Button home_own;
-    //private Button search_own;
-    //private Button survey_own;
+    private ImageView facebook;
+    private ImageView mail;
+    private ImageView instagram;
 
     private TextView edit_own;
     private TextView terms;
@@ -39,7 +37,6 @@ public class ProfileOwnFragment extends Fragment {
     private TextView stateown;
     private TextView nationown;
 
-    private TextView description;
 
     private User currentUser;
     private UserManager userManager;
@@ -56,9 +53,9 @@ public class ProfileOwnFragment extends Fragment {
         this.userManager = new UserManager(ObjectBox.get());
         this.context = getContext();
 
-        facebook = (Button) view.findViewById(R.id.facebook);
-        mail = (Button) view.findViewById(R.id.mail);
-        instagram = (Button) view.findViewById(R.id.instagram);
+        facebook = (ImageView) view.findViewById(R.id.facebook);
+        mail = (ImageView) view.findViewById(R.id.mail);
+        instagram = (ImageView) view.findViewById(R.id.instagram);
 
         //home_own = (Button) view.findViewById(R.id.home_own);
         //search_own = (Button) view.findViewById(R.id.search_own);
