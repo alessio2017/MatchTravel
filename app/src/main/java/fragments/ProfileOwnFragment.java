@@ -1,7 +1,6 @@
 package fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,17 +9,18 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.annotation.Nullable;
 
 import datadb.User;
 import matchtravel.com.matchtravel.R;
-import matchtravel.com.matchtravel.SurveyActivity;
-import matchtravel.com.matchtravel.WishListActivity;
 import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 
@@ -29,18 +29,20 @@ public class ProfileOwnFragment extends Fragment {
     private ImageView mail;
     private ImageView instagram;
 
-    private TextView edit_own;
+    private TextView edit_btn;
     private TextView terms;
     private TextView privacy_own;
 
-    private TextView ageown;
-    private TextView stateown;
-    private TextView nationown;
-
+    private TextView ageOwn;
+    private TextView stateOwn;
+    private TextView nationOwn;
+    private TextView nameOwn;
+    private EditText descriptionOwn;
 
     private User currentUser;
     private UserManager userManager;
     private Context context;
+    private View layout;
 
     OnChangeCurrentUserListener callback;
 
@@ -48,8 +50,8 @@ public class ProfileOwnFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile_own, container, false);
-
+        this.layout = inflater.inflate(R.layout.fragment_profile_own, container, false);
+        View view = layout;
         this.userManager = new UserManager(ObjectBox.get());
         this.context = getContext();
 
@@ -57,27 +59,18 @@ public class ProfileOwnFragment extends Fragment {
         mail = (ImageView) view.findViewById(R.id.mail);
         instagram = (ImageView) view.findViewById(R.id.instagram);
 
-        //home_own = (Button) view.findViewById(R.id.home_own);
-        //search_own = (Button) view.findViewById(R.id.search_own);
-        //survey_own = (Button) view.findViewById(R.id.survey_own);
-
-        edit_own = (TextView) view.findViewById(R.id.edit_own);
+        edit_btn = (TextView) view.findViewById(R.id.edit);
         terms = (TextView) view.findViewById(R.id.terms);
         privacy_own = (TextView) view.findViewById(R.id.privacy_own);
 
-        ageown = (TextView) view.findViewById(R.id.ageown);
-        stateown = (TextView) view.findViewById(R.id.stateown);
-        nationown = (TextView) view.findViewById(R.id.nationown);
+        ageOwn = (TextView) view.findViewById(R.id.ageown);
+        stateOwn = (TextView) view.findViewById(R.id.stateown);
+        nationOwn = (TextView) view.findViewById(R.id.nationown);
+        nameOwn = (TextView) view.findViewById(R.id.txt_name);
+        descriptionOwn = view.findViewById(R.id.edit_own);
+        descriptionOwn.setClickable(false);
 
-        //settare info dell'utente che mostreremo loggato alla prof.
-        ageown.setText("29 yo");
-        stateown.setText("Single");
-        nationown.setText("from"+"Uk");
-
-        //settare descrizione dell'utente finale
-        //description.setText("Hi! I do not speak much in front of people…\n" +
-              //  "I'm not shy, i just do not talk, although most people say I am one of the most funny people on the planet and also that i remember them a famous spy:Mr. English. Never hear of...\n" +
-               // "\"");
+        updateView();
 
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,37 +95,15 @@ public class ProfileOwnFragment extends Fragment {
             }
 
         });
-
-        /*home_own.setOnClickListener(new View.OnClickListener() {
+        edit_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
-            }
-
-        });*/
-
-        /*search_own.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-        });*/
-
-        /*survey_own.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent goToSurvey = new Intent(getActivity(), SurveyActivity.class);
-                startActivity(goToSurvey);
-            }
-
-        });*/
-
-        edit_own.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //TODO: ora è possibile cambiare immagine e descrizione (o solo descrizione?)
+                //descriptionOwn.setClickable(true);
+                //TODO: Come fare per cambiare descrizione?
+                /*
+                String newDescription = ?
+                userManager.changeDescription(currentUser, newDescription);
+                 */
             }
         });
 
@@ -193,7 +164,7 @@ public class ProfileOwnFragment extends Fragment {
     public void setCurrentUser(User user){
         if(user!=null)
             this.currentUser = user;
-        //TODO: update delle varie view
+        updateView();
     }
 
     /*interfaccia necessaria per comunicare all'activity del cambio di utente*/
@@ -203,5 +174,39 @@ public class ProfileOwnFragment extends Fragment {
     /*metodo di utility dell'interfaccia*/
     public void setOnChangeCurrentUserListener(OnChangeCurrentUserListener listener){
         this.callback = listener;
+    }
+
+    private void updateView(){
+        try{
+            if(currentUser!=null){
+                String name = currentUser.getName() + "\n" + currentUser.getSurname();
+                String age = Integer.toString(calculateAge(currentUser.getAge())) + " yo";
+                String status = currentUser.getStatus();
+                String country = currentUser.getCountry();
+                String description = currentUser.getDescription();
+                String defaultDesc = "Press 'Edit' and type something about yourself.";
+
+                nameOwn.setText(name);
+                ageOwn.setText(age);
+                stateOwn.setText(status);
+                nationOwn.setText(country);
+                if(description!=null)
+                    descriptionOwn.setText(description);
+                else
+                    descriptionOwn.setText(defaultDesc);
+
+                //TODO: settare immagine
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private int calculateAge(Date age) {
+        Calendar cal = Calendar.getInstance();
+        int currentYear = cal.get(Calendar.YEAR);
+        cal.setTime(age);
+        int userYear = cal.get(Calendar.YEAR);
+        return currentYear - userYear;
     }
 }
