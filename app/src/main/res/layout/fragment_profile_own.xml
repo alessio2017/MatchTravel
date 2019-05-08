@@ -5,233 +5,312 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/pattern_background_blurred_up_right">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pattern_background_blurred_up_right">
 
-    <TextView
-        android:id="@+id/lbl_yourprofile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/covesbold"
-        android:text="@string/yourprofile"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/lbl_yourprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/covesbold"
+            android:text="@string/yourprofile"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/image_profilepic"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="70dp"
-        android:contentDescription="@string/user_profile_pic"
-        android:maxWidth="120dp"
-        android:maxHeight="120dp"
-        android:src="@drawable/img_user"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_profilepic"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="70dp"
+            android:contentDescription="@string/user_profile_pic"
+            android:maxWidth="120dp"
+            android:maxHeight="120dp"
+            android:src="@drawable/img_user"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txt_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="@font/covesbold"
-        android:text="@string/name_of_the_users"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_yourprofile" />
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/covesbold"
+            android:text="@string/name_of_the_users"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_yourprofile" />
 
-    <TextView
-        android:id="@+id/ageown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
-        android:text="@string/age_user"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
-        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+        <TextView
+            android:id="@+id/ageown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/age_user"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
-    <TextView
-        android:id="@+id/stateown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
-        android:text="@string/status_user"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
-        app:layout_constraintTop_toBottomOf="@+id/ageown" />
+        <TextView
+            android:id="@+id/stateown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/status_user"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintTop_toBottomOf="@+id/ageown" />
 
-    <TextView
-        android:id="@+id/nationown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
-        android:text="@string/country_user"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
-        app:layout_constraintTop_toBottomOf="@+id/stateown" />
+        <TextView
+            android:id="@+id/nationown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/country_user"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintTop_toBottomOf="@+id/stateown" />
 
-    <EditText
-        android:id="@+id/edit_own"
-        android:layout_width="0dp"
-        android:layout_height="182dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:autofillHints="Just joined this application? Write me"
-        android:background="@xml/rounded_edittext"
-        android:fontFamily="@font/covesbold"
-        android:gravity="top"
-        android:inputType="none"
-        android:lines="5"
-        android:maxLength="200"
-        android:singleLine="false"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/facebook"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/edit_own"
+            android:layout_width="0dp"
+            android:layout_height="182dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints="Just joined this application? Write me"
+            android:background="@xml/rounded_edittext"
+            android:fontFamily="@font/covesbold"
+            android:gravity="top"
+            android:inputType="none"
+            android:lines="5"
+            android:maxLength="200"
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/facebook"
+            tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:background="@null"
-        android:fontFamily="@font/covesbold"
-        android:text="@string/edit"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_own" />
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:background="@null"
+            android:fontFamily="@font/covesbold"
+            android:text="@string/edit"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_own" />
 
-    <Button
-        android:id="@+id/privacy_own"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        android:fontFamily="@font/covesbold"
-        android:text="@string/privacy_and_conditions"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit" />
+        <Button
+            android:id="@+id/privacy_own"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:fontFamily="@font/covesbold"
+            android:text="@string/privacy_and_conditions"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit" />
 
-    <Button
-        android:id="@+id/terms"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        android:fontFamily="@font/covesbold"
-        android:text="@string/terms"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy_own" />
+        <Button
+            android:id="@+id/terms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:fontFamily="@font/covesbold"
+            android:text="@string/terms"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/privacy_own" />
 
-    <ImageView
-        android:id="@+id/facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/facebook_social_button"
-        android:minWidth="35dp"
-        android:minHeight="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nationown"
-        app:srcCompat="@drawable/facebook" />
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/facebook_social_button"
+            android:minWidth="35dp"
+            android:minHeight="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nationown"
+            app:srcCompat="@drawable/facebook" />
 
-    <ImageView
-        android:id="@+id/instagram"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/instagram_social_button"
-        android:minWidth="35dp"
-        android:minHeight="35dp"
-        app:layout_constraintStart_toEndOf="@+id/facebook"
-        app:layout_constraintTop_toBottomOf="@+id/nationown"
-        app:srcCompat="@drawable/instagram" />
+        <ImageView
+            android:id="@+id/instagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/instagram_social_button"
+            android:minWidth="35dp"
+            android:minHeight="35dp"
+            app:layout_constraintStart_toEndOf="@+id/facebook"
+            app:layout_constraintTop_toBottomOf="@+id/nationown"
+            app:srcCompat="@drawable/instagram" />
 
-    <ImageView
-        android:id="@+id/mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/mail_social_button"
-        android:minWidth="35dp"
-        android:minHeight="35dp"
-        app:layout_constraintStart_toEndOf="@+id/instagram"
-        app:layout_constraintTop_toBottomOf="@+id/nationown"
-        app:srcCompat="@drawable/mail" />
+        <ImageView
+            android:id="@+id/mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/mail_social_button"
+            android:minWidth="35dp"
+            android:minHeight="35dp"
+            app:layout_constraintStart_toEndOf="@+id/instagram"
+            app:layout_constraintTop_toBottomOf="@+id/nationown"
+            app:srcCompat="@drawable/mail" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:color/black"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/privacy_own"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/black"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/privacy_own"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/black"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/terms"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy_own" />
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/black"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/terms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/privacy_own" />
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/edit_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:alpha="0.5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <EditText
+                android:id="@+id/actual_edit_description_box"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:autofillHints="Type me!"
+                android:hint="Type me!"
+                android:background="@xml/rounded_edittext"
+                android:fontFamily="@font/covesbold"
+                android:gravity="top"
+                android:inputType="none"
+                android:lines="5"
+                android:maxLength="200"
+                android:singleLine="false"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"/>
+
+            <Button
+                android:id="@+id/edit_btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:fontFamily="@font/covesbold"
+                android:textSize="15sp"
+                android:background="@xml/rounded_edittext"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="48dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                app:layout_constraintLeft_toLeftOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/actual_edit_description_box"/>
+
+            <Button
+                android:id="@+id/edit_btn_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:fontFamily="@font/coveslight"
+                android:textSize="15sp"
+                android:background="@xml/rounded_edittext"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="48dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                app:layout_constraintRight_toRightOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/actual_edit_description_box"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

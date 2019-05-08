@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -25,9 +25,6 @@ import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 
 public class ProfileOwnFragment extends Fragment {
-    private ImageView facebook;
-    private ImageView mail;
-    private ImageView instagram;
 
     private TextView edit_btn;
     private TextView terms;
@@ -37,7 +34,7 @@ public class ProfileOwnFragment extends Fragment {
     private TextView stateOwn;
     private TextView nationOwn;
     private TextView nameOwn;
-    private EditText descriptionOwn;
+    private TextView descriptionOwn;
 
     private User currentUser;
     private UserManager userManager;
@@ -50,60 +47,52 @@ public class ProfileOwnFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        this.layout = inflater.inflate(R.layout.fragment_profile_own, container, false);
-        View view = layout;
+        View view = inflater.inflate(R.layout.fragment_profile_own, container, false);
+        this.layout = view;
         this.userManager = new UserManager(ObjectBox.get());
         this.context = getContext();
 
-        facebook = (ImageView) view.findViewById(R.id.facebook);
-        mail = (ImageView) view.findViewById(R.id.mail);
-        instagram = (ImageView) view.findViewById(R.id.instagram);
+        edit_btn = view.findViewById(R.id.edit);
+        terms = view.findViewById(R.id.terms);
+        privacy_own = view.findViewById(R.id.privacy_own);
 
-        edit_btn = (TextView) view.findViewById(R.id.edit);
-        terms = (TextView) view.findViewById(R.id.terms);
-        privacy_own = (TextView) view.findViewById(R.id.privacy_own);
-
-        ageOwn = (TextView) view.findViewById(R.id.ageown);
-        stateOwn = (TextView) view.findViewById(R.id.stateown);
-        nationOwn = (TextView) view.findViewById(R.id.nationown);
-        nameOwn = (TextView) view.findViewById(R.id.txt_name);
+        ageOwn = view.findViewById(R.id.ageown);
+        stateOwn = view.findViewById(R.id.stateown);
+        nationOwn = view.findViewById(R.id.nationown);
+        nameOwn = view.findViewById(R.id.txt_name);
         descriptionOwn = view.findViewById(R.id.edit_own);
-        descriptionOwn.setClickable(false);
+
+        Button editDone = view.findViewById(R.id.edit_btn_done);
+        Button editCancel = view.findViewById(R.id.edit_btn_cancel);
+
+        editDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editBox = layout.findViewById(R.id.actual_edit_description_box);
+                String newDescription = editBox.getText().toString();
+                userManager.changeDescription(currentUser, newDescription);
+                updateView();
+                layout.findViewById(R.id.edit_container).setVisibility(View.GONE);
+            }
+        });
+
+        editCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout.findViewById(R.id.edit_container).setVisibility(View.GONE);
+            }
+        });
 
         updateView();
 
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-        });
-
-        instagram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-        });
-
-        mail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-        });
         edit_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //descriptionOwn.setClickable(true);
-                //TODO: Come fare per cambiare descrizione?
-                /*
-                String newDescription = ?
-                userManager.changeDescription(currentUser, newDescription);
-                 */
+                View editContainer = layout.findViewById(R.id.edit_container);
+                if(editContainer.getVisibility() == View.GONE) {
+                    editContainer.setVisibility(View.VISIBLE);
+                    ((EditText)editContainer.findViewById(R.id.actual_edit_description_box)).setText(currentUser.description);
+                }
             }
         });
 
