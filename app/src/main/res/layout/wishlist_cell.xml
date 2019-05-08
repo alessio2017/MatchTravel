@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
 
         <!--main content-->
         <view
-            android:id="@+id/constraintLayout"
+            android:id="@+id/container_user"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="8dp"
-            android:paddingBottom="16dp"
             android:background="@drawable/wishlist_cell_shape"
-            app:layout_constraintBottom_toBottomOf="@+id/icon_plus"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +69,7 @@
             android:layout_height="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/container_user"
             app:layout_constraintTop_toBottomOf="@+id/imageCity"
             app:srcCompat="@drawable/img_user" />
 
@@ -77,10 +78,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/covesbold"
             android:text="Nome\nUtente"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:fontFamily="@font/covesbold"
             app:layout_constraintBottom_toBottomOf="@+id/imageUser1"
             app:layout_constraintStart_toEndOf="@+id/imageUser1"
             app:layout_constraintTop_toTopOf="@+id/imageUser1" />
@@ -93,7 +94,7 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_go_to_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName1"
-            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintStart_toEndOf="@+id/userName1"
             app:layout_constraintTop_toTopOf="@+id/userName1" />
 
@@ -103,7 +104,7 @@
             android:layout_height="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/container_user"
             app:layout_constraintTop_toBottomOf="@+id/imageUser1"
             app:srcCompat="@drawable/img_user" />
 
@@ -112,10 +113,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/covesbold"
             android:text="Nome \nUtente"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:fontFamily="@font/covesbold"
             app:layout_constraintBottom_toBottomOf="@+id/imageUser2"
             app:layout_constraintStart_toEndOf="@+id/imageUser2"
             app:layout_constraintTop_toTopOf="@+id/imageUser2" />
@@ -128,7 +129,7 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_go_to_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName2"
-            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintStart_toEndOf="@+id/userName2"
             app:layout_constraintTop_toTopOf="@+id/userName2" />
 
@@ -138,7 +139,7 @@
             android:layout_height="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/container_user"
             app:layout_constraintTop_toBottomOf="@+id/imageUser2"
             app:srcCompat="@drawable/img_user" />
 
@@ -147,10 +148,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/covesbold"
             android:text="Nome \nUtente"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:fontFamily="@font/covesbold"
             app:layout_constraintBottom_toBottomOf="@+id/imageUser3"
             app:layout_constraintStart_toEndOf="@+id/imageUser3"
             app:layout_constraintTop_toTopOf="@+id/imageUser3" />
@@ -163,7 +164,7 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_go_to_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName3"
-            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintStart_toEndOf="@+id/userName3"
             app:layout_constraintTop_toTopOf="@+id/userName3" />
 
@@ -173,8 +174,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/icon_plus"
-            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/container_user"
+            app:layout_constraintStart_toStartOf="@+id/container_user"
             app:layout_constraintTop_toBottomOf="@+id/imageUser3" />
 
     </android.support.constraint.ConstraintLayout>
