@@ -36,7 +36,7 @@
         android:contentDescription="@string/user_profile_pic"
         android:maxWidth="120dp"
         android:maxHeight="120dp"
-        android:src="@drawable/img_user"
+        android:src="@drawable/photo"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
