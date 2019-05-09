@@ -179,7 +179,7 @@ public class ProfileOwnFragment extends Fragment {
                 ageOwn.setText(age);
                 stateOwn.setText(status);
                 nationOwn.setText(country);
-                if(description!=null)
+                if(description!=null && description.equals(""))
                     descriptionOwn.setText(description);
                 else
                     descriptionOwn.setText(defaultDesc);
