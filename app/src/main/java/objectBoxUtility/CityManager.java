@@ -723,7 +723,7 @@ public class CityManager {
 
         //Instabul
         c = new City();
-        c.name = "Instabul";
+        c.name = "Istanbul";
         c.description = "Istanbul (UK: /ˌɪstænˈbʊl, -ˈbuːl/, also US: /-stɑːn-, -stən-, ˈɪstənb-, ɪˈstɑːnbʊl/; Turkish: İstanbul [isˈtanbuɫ]), formerly known as Byzantium and Constantinople, is the most populous city in Turkey and the country's economic, cultural and historic center. Istanbul is a transcontinental city in Eurasia, straddling the Bosporus strait (which separates Europe and Asia) between the Sea of Marmara and the Black Sea. Its commercial and historical center lies on the European side and about a third of its population lives in suburbs on the Asian side of the Bosporus. With a total population of around 15 million residents in its metropolitan area, Istanbul is one of the world's most populous cities, ranking as the world's fourth largest city proper and the largest European city. The city is the administrative center of the Istanbul Metropolitan Municipality (coterminous with Istanbul Province). Istanbul is viewed as a bridge between the East and West. Founded under the name of Byzantion (Βυζάντιον) on the Sarayburnu promontory around 660 BCE, the city grew in size and influence, becoming one of the most important cities in history. After its reestablishment as Constantinople in 330 CE, it served as an imperial capital for almost 16 centuries, during the Roman/Byzantine (330–1204), Latin (1204–1261), Palaiologos Byzantine (1261–1453) and Ottoman (1453–1922) empires. It was instrumental in the advancement of Christianity during Roman and Byzantine times, before the Ottomans conquered the city in 1453 CE and transformed it into an Islamic stronghold and the seat of the Ottoman Caliphate. The city's strategic position on the historic Silk Road, rail networks to Europe and the Middle East, and the only sea route between the Black Sea and the Mediterranean have produced a cosmopolitan populace. While Ankara was chosen instead as the new Turkish capital after the Turkish War of Independence, and the city's name was changed to Istanbul, the city has maintained its prominence in geopolitical and cultural affairs. The population of the city has increased tenfold since the 1950s, as migrants from across Anatolia have moved in and city limits have expanded to accommodate them. Arts, music, film, and cultural festivals were established towards the end of the 20th century and continue to be hosted by the city today. Infrastructure improvements have produced a complex transportation network in the city. Approximately 12.56 million foreign visitors arrived in Istanbul in 2015, five years after it was named a European Capital of Culture, making the city the world's fifth most popular tourist destination. The city's biggest attraction is its historic center, partially listed as a UNESCO World Heritage Site, and its cultural and entertainment hub is across the city's natural harbor, the Golden Horn, in the Beyoğlu district. Considered a global city, Istanbul has one of the fastest-growing metropolitan economies in the world. It hosts the headquarters of many Turkish companies and media outlets and accounts for more than a quarter of the country's gross domestic product. Hoping to capitalize on its revitalization and rapid expansion, Istanbul has bid for the Summer Olympics five times in twenty years.";
         c.kinds.add(kindManager.getKind(0));
         c.kinds.add(kindManager.getKind(2));
@@ -907,7 +907,7 @@ public class CityManager {
         if(local == 2 && temperature == 3){
             cities = cityBox.query().equal(City_.budget, budget)
                     .and()
-                    .less(City_.tourists, tourist+1)
+                    .greater(City_.tourists, tourist+1)
                     .build()
                     .find();
         }else if(local == 2){
@@ -923,14 +923,14 @@ public class CityManager {
                         .and()
                         .less(City_.budget, budget+1)
                         .and()
-                        .less(City_.tourists, tourist+1)
+                        .greater(City_.tourists, tourist+1)
                         .build().find();
             }else{
                 cities = cityBox.query().equal(City_.local, true)
                         .and()
                         .less(City_.budget, budget+1)
                         .and()
-                        .less(City_.tourists, tourist+1)
+                        .greater(City_.tourists, tourist+1)
                         .build().find();
             }
         }else{
@@ -939,7 +939,7 @@ public class CityManager {
                         .and()
                         .less(City_.budget, budget+1)
                         .and()
-                        .less(City_.tourists, tourist+1)
+                        .greater(City_.tourists, tourist+1)
                         .and()
                         .equal(City_.temperature, temperature)
                         .build().find();
@@ -967,6 +967,33 @@ public class CityManager {
             a = attractionManager.getAttraction(activities);
 
         /*  get cities where city.kind has kind and city.activities has activities*/
+        List<City> toBeReturned = new ArrayList<>();
+        toBeReturned = baseStep(a,k,cities);
+
+        if(toBeReturned.size()==0){
+            //if the list is empty, is better if we are easier on the "kind" property
+            if(kind==3) {
+                //getting both "sea" and "mountain" as kind (there aren't cities with both of these)
+                k = kindManager.getKind(0);
+                toBeReturned = baseStep(a,k,cities);
+                k = kindManager.getKind(1);
+                toBeReturned.addAll(baseStep(a,k,cities));
+            }
+            else{
+                if(kind==4) {
+                    //getting "art" as kind
+                    k = kindManager.getKind(2);
+                }else if (kind==2){
+                    //getting "romantic" as kind
+                    k = kindManager.getKind(4);
+                }
+                toBeReturned = baseStep(a,k,cities);
+            }
+        }
+        return toBeReturned;
+    }
+
+    private List<City> baseStep(Attraction a, Kind k, List<City> cities){
         List<City> toBeReturned = new ArrayList<>();
         if(a!=null) {
             for (City c : cities) {

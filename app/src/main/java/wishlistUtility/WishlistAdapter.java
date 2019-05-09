@@ -1,7 +1,12 @@
 package wishlistUtility;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v7.view.menu.ActionMenuItem;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +24,7 @@ public class WishlistAdapter extends RecyclerView.Adapter {
 
     private List<City> cities;
     private SparseArray<List<User>> userPerCity;
+    private Fragment parent;
 
     public WishlistAdapter(){}
 
@@ -31,7 +37,15 @@ public class WishlistAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ((WishlistViewHolder) viewHolder).bindData(cities.get(i), userPerCity.get(i));
+        //getting image of the city
+        String resourceName = cities.get(i).getName().toLowerCase().replace(" ","").concat("_pic_icon");
+        Log.i("RESULT_SURVEY", "Looking for: " + resourceName);
+        //getting the id of the resource "cityname_pic_icon.png"
+        int resourceId =  parent.getResources().getIdentifier(resourceName, "drawable", parent.getActivity().getPackageName());
+        //getting the real image
+        Drawable image = parent.getActivity().getDrawable(resourceId);
+
+        ((WishlistViewHolder) viewHolder).bindData(cities.get(i), userPerCity.get(i), image);
     }
 
     @Override
@@ -53,6 +67,10 @@ public class WishlistAdapter extends RecyclerView.Adapter {
             List<User> users = usersListPerCity.get(c);
             userPerCity.append(i, users);
         }
+    }
+
+    public void setParent(Fragment parent){
+        this.parent = parent;
     }
 }
 

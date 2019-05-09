@@ -105,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(getString(R.string.sharedPref_firstLogin), false);
             editor.commit();
+
             //going to the new activity
             Intent goToHomeFirstLogin = new Intent(LoginActivity.this, HomeFirstLoginActivity.class);
             startActivity(goToHomeFirstLogin);

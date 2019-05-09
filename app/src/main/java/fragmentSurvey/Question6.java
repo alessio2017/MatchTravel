@@ -61,62 +61,45 @@ public class Question6 extends Fragment {
             @Override
             public void onClick(View view) {
                 sur.setAnswer6(0);
-
-                /* qui va gestito l'intent che porta all'activity per gestione risultati
-
-                 */
-                String result =""+sur.getAnswer1()+" "+sur.getAnswer2()+" "+sur.getAnswer3()+" "+sur.getAnswer4()+" "+sur.getAnswer5()+" "+sur.getAnswer6();
-
-                Intent myIntent = new Intent(getActivity(), Result.class);
-                myIntent.putExtra("results",result);
-                startActivity(myIntent);
+                goToResult();
             }
         });
         Temperate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sur.setAnswer6(1);
-
-                /* qui va gestito l'intent che porta all'activity per gestione risultati
-
-                 */
-                String result =""+sur.getAnswer1()+" "+sur.getAnswer2()+" "+sur.getAnswer3()+" "+sur.getAnswer4()+" "+sur.getAnswer5()+" "+sur.getAnswer6();
-
-                Intent myIntent = new Intent(getActivity(), Result.class);
-                myIntent.putExtra("results",result);
-                startActivity(myIntent);
+                goToResult();
             }
         });
         Cold.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sur.setAnswer6(2);
-
-                /* qui va gestito l'intent che porta all'activity per gestione risultati
-
-                 */
-                String result =""+sur.getAnswer1()+" "+sur.getAnswer2()+" "+sur.getAnswer3()+" "+sur.getAnswer4()+" "+sur.getAnswer5()+" "+sur.getAnswer6();
-                Intent myIntent = new Intent(getActivity(), Result.class);
-                myIntent.putExtra("results",result);
-                startActivity(myIntent);
+                goToResult();
             }
         });
         NotCare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sur.setAnswer6(3);
-
-                /* qui va gestito l'intent che porta all'activity per gestione risultati
-
-                 */
-                String result =""+sur.getAnswer1()+" "+sur.getAnswer2()+" "+sur.getAnswer3()+" "+sur.getAnswer4()+" "+sur.getAnswer5()+" "+sur.getAnswer6();
-                Intent myIntent = new Intent(getActivity(), Result.class);
-                myIntent.putExtra("results",result);
-                startActivity(myIntent);
+                goToResult();
             }
         });
         return view;
 
+    }
+
+    private void goToResult(){
+        //going to results
+        Intent myIntent = new Intent(getActivity(), Result.class);
+        myIntent.putExtra("answer1", sur.getAnswer1());
+        myIntent.putExtra("answer2", sur.getAnswer2());
+        myIntent.putExtra("answer3", sur.getAnswer3());
+        myIntent.putExtra("answer4", sur.getAnswer4());
+        myIntent.putExtra("answer5", sur.getAnswer5());
+        myIntent.putExtra("answer6", sur.getAnswer6());
+
+        startActivity(myIntent);
     }
 
 
