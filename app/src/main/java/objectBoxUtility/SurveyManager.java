@@ -104,6 +104,15 @@ public class SurveyManager {
         return cities;
     }
 
+    public void setAnswers(int a1, int a2, int a3, int a4, int a5, int a6){
+        this.kind = a1;
+        this.local = a2;
+        this.budget = a3;
+        this.activities = a4;
+        this.tourist = a5;
+        this.temperature = a6;
+    }
+
     //getter and setter
     public void setAnswer1(int a1){
         this.kind = a1;
