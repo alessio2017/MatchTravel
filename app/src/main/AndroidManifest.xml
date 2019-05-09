@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CityProfileActivity"></activity>
         <activity android:name=".SurveyActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -20,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeFirstLoginActivity" />
-        <activity android:name=".WishListActivity"
+        <activity
+            android:name=".WishListActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Result" />
     </application>
