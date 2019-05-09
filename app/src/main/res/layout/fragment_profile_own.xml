@@ -313,7 +313,5 @@
                 app:layout_constraintTop_toBottomOf="@id/actual_edit_description_box"/>
 
         </android.support.constraint.ConstraintLayout>
-
     </android.support.constraint.ConstraintLayout>
-
 </ScrollView>
