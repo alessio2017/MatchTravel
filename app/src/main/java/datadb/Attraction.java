@@ -27,4 +27,10 @@ public class Attraction {
     public void setAttraction(String attraction) {
         this.attraction = attraction;
     }
+
+    @Override
+    public boolean equals(Object o){
+        Attraction a = (Attraction) o;
+        return a.getAttraction().equals(getAttraction());
+    }
 }

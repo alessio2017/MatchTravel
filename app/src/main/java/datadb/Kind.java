@@ -27,4 +27,10 @@ public class Kind {
     public void setKind(String kind) {
         this.kind = kind;
     }
+
+    @Override
+    public boolean equals(Object o ){
+        Kind k = (Kind) o;
+        return k.getKind().equals(getKind());
+    }
 }

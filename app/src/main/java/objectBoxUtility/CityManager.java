@@ -907,7 +907,7 @@ public class CityManager {
         if(local == 2 && temperature == 3){
             cities = cityBox.query().equal(City_.budget, budget)
                     .and()
-                    .less(City_.tourists, tourist+1)
+                    .greater(City_.tourists, tourist+1)
                     .build()
                     .find();
         }else if(local == 2){
@@ -923,14 +923,14 @@ public class CityManager {
                         .and()
                         .less(City_.budget, budget+1)
                         .and()
-                        .less(City_.tourists, tourist+1)
+                        .greater(City_.tourists, tourist+1)
                         .build().find();
             }else{
                 cities = cityBox.query().equal(City_.local, true)
                         .and()
                         .less(City_.budget, budget+1)
                         .and()
-                        .less(City_.tourists, tourist+1)
+                        .greater(City_.tourists, tourist+1)
                         .build().find();
             }
         }else{
@@ -939,7 +939,7 @@ public class CityManager {
                         .and()
                         .less(City_.budget, budget+1)
                         .and()
-                        .less(City_.tourists, tourist+1)
+                        .greater(City_.tourists, tourist+1)
                         .and()
                         .equal(City_.temperature, temperature)
                         .build().find();
@@ -967,6 +967,33 @@ public class CityManager {
             a = attractionManager.getAttraction(activities);
 
         /*  get cities where city.kind has kind and city.activities has activities*/
+        List<City> toBeReturned = new ArrayList<>();
+        toBeReturned = baseStep(a,k,cities);
+
+        if(toBeReturned.size()==0){
+            //if the list is empty, is better if we are easier on the "kind" property
+            if(kind==3) {
+                //getting both "sea" and "mountain" as kind (there aren't cities with both of these)
+                k = kindManager.getKind(0);
+                toBeReturned = baseStep(a,k,cities);
+                k = kindManager.getKind(1);
+                toBeReturned.addAll(baseStep(a,k,cities));
+            }
+            else{
+                if(kind==4) {
+                    //getting "art" as kind
+                    k = kindManager.getKind(2);
+                }else if (kind==2){
+                    //getting "romantic" as kind
+                    k = kindManager.getKind(4);
+                }
+                toBeReturned = baseStep(a,k,cities);
+            }
+        }
+        return toBeReturned;
+    }
+
+    private List<City> baseStep(Attraction a, Kind k, List<City> cities){
         List<City> toBeReturned = new ArrayList<>();
         if(a!=null) {
             for (City c : cities) {
