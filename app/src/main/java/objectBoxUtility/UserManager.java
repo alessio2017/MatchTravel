@@ -282,4 +282,11 @@ public class UserManager {
         /*Get fake user from database, based on the complete name*/
         return userBox.query().equal(User_.name, name).equal(User_.surname, surname).build().findFirst();
     }
+
+    public void changeDescription(User user, String newDesc){
+        /*change the description parameter for the user selected*/
+        user.setDescription(newDesc);
+        userBox.remove(user.id);
+        userBox.put(user);
+    }
 }

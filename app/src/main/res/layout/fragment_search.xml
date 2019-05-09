@@ -46,8 +46,8 @@
     <!-- List View per la visualizzazione della lista delle città -->
     <ListView
         android:id="@+id/result_list_items"
-        android:layout_width="395dp"
-        android:layout_height="598dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
