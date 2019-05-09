@@ -50,6 +50,9 @@ public class HomeFragment extends Fragment {
         if(recyclerViewAdapter == null)
             recyclerViewAdapter = new WishlistAdapter();
 
+        //giving to the adapter the activity pointer
+        recyclerViewAdapter.setParent(this);
+
         //giving to the adapter the list of city of the current user
         recyclerViewAdapter.setCities(currentUser.destinations);
 

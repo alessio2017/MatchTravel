@@ -1,5 +1,6 @@
 package wishlistUtility;
 
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -48,9 +49,9 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
         this.favouriteBtn = itemView.findViewById(R.id.buttonStar);
     }
 
-    public void bindData(final City city, final List<User> users){
+    public void bindData(final City city, final List<User> users, Drawable image){
         cityName.setText(city.getName());
-        //TODO: set city image
+        cityImage.setImageDrawable(image);
         //TODO: set button star
 
         String userName = "";
