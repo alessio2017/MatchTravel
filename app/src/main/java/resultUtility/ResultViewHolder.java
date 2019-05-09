@@ -1,11 +1,9 @@
 package resultUtility;
 
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +16,8 @@ public class ResultViewHolder extends RecyclerView.ViewHolder {
     private ImageView infoCityBtn;
     private TextView cityName;
 
+    private OnTouchResultCell callback;
+
     public ResultViewHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -26,18 +26,32 @@ public class ResultViewHolder extends RecyclerView.ViewHolder {
         this.cityName = itemView.findViewById(R.id.result_city_name);
     }
 
-    public void bindData(City city, Drawable imageCity){
+    public void bindData(final City city, Drawable imageCity){
         //setting name
         this.cityName.setText(city.getName());
         //setting info
         this.infoCityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: profilo città
+                callback.onTouchInfoButton(city);
             }
         });
         //setting image city
         this.imageCity.setImageDrawable(imageCity);
-        //TODO: click on image
+        this.imageCity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callback.onTouchImage(city);
+            }
+        });
+    }
+
+    public interface OnTouchResultCell{
+        void onTouchImage(City city);
+        void onTouchInfoButton(City city);
+    }
+
+    public void setOnTouchResultCellListener(OnTouchResultCell listener){
+        this.callback = listener;
     }
 }

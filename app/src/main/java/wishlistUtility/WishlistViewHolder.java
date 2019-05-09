@@ -24,10 +24,10 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
     private ImageView user1Image;
     private ImageView user2Image;
     private ImageView user3Image;
-    private ImageButton contactUser1;
-    private ImageButton contactUser2;
-    private ImageButton contactUser3;
-    private ImageButton favouriteBtn;
+    private ImageView contactUser1;
+    private ImageView contactUser2;
+    private ImageView contactUser3;
+    private ImageView favouriteBtn;
 
     public WishlistViewHolder(@NonNull View itemView) {
         super(itemView);

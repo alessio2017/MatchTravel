@@ -7,11 +7,11 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingBottom="8dp">
 
         <!--main content-->
-        <view
+        <View
             android:id="@+id/container_user"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -86,7 +86,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageUser1"
             app:layout_constraintTop_toTopOf="@+id/imageUser1" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/buttonGoToProfile1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageUser2"
             app:layout_constraintTop_toTopOf="@+id/imageUser2" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/buttonGoToProfile2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageUser3"
             app:layout_constraintTop_toTopOf="@+id/imageUser3" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/buttonGoToProfile3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

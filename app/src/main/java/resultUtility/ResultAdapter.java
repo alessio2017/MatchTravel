@@ -39,8 +39,9 @@ public class ResultAdapter extends RecyclerView.Adapter  {
         int resourceId =  parent.getResources().getIdentifier(resourceName, "drawable", parent.getPackageName());
         //getting the real image
         Drawable image = parent.getDrawable(resourceId);
-        //binding data
+        //binding data and setting listener event
         ((ResultViewHolder) viewHolder).bindData(city, image);
+        ((ResultViewHolder) viewHolder).setOnTouchResultCellListener((ResultViewHolder.OnTouchResultCell) parent);
     }
 
     @Override
@@ -51,5 +52,10 @@ public class ResultAdapter extends RecyclerView.Adapter  {
     public void setResults(List<City> cities, Activity parent){
         this.results = cities;
         this.parent = parent;
+    }
+
+    public void removeItem(City city){
+        this.results.remove(city);
+        this.notifyDataSetChanged();
     }
 }

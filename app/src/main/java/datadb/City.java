@@ -94,4 +94,10 @@ public class City {
     public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
+
+    @Override
+    public boolean equals(Object o){
+        City c = (City) o;
+        return c.name.equals(this.name);
+    }
 }
