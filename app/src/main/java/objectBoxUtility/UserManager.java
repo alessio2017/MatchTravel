@@ -283,11 +283,13 @@ public class UserManager {
         return userBox.query().equal(User_.name, name).equal(User_.surname, surname).build().findFirst();
     }
 
-    public void changeDescription(User user, String newDesc){
+    public User changeDescription(User user, String newDesc){
         /*change the description parameter for the user selected*/
+        user = userBox.get(user.id);
         user.setDescription(newDesc);
         userBox.remove(user.id);
         userBox.put(user);
+        return user;
     }
 
     public void addDestination(User user, City city){
