@@ -106,7 +106,7 @@ public class ProfileOwnFragment extends Fragment {
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        //retrieve desidered user
+                        //retrieve desired user
                         User user = userManager.getRealUser("" + item.getTitle());
                         //retrieve shared preference
                         SharedPreferences sharedPreferences = context.

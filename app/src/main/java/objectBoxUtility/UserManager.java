@@ -301,15 +301,16 @@ public class UserManager {
         }
     }
 
-    public void addDestination(User user, List<City> cities){
+    public User addDestination(User user, List<City> cities){
         List<City> toBeActuallyAdded = new ArrayList<>();
         for(City c : cities){
             if(!user.destinations.contains(c))
                 toBeActuallyAdded.add(c);
         }
-        userBox.get(user.id);
+        user = userBox.get(user.id);
         user.destinations.addAll(toBeActuallyAdded);
         userBox.put(user);
+        return user;
     }
 
     public void removeDestination(User user, City city){

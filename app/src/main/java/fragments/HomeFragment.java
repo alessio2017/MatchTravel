@@ -62,6 +62,7 @@ public class HomeFragment extends Fragment {
         for(City c : currentUser.destinations){
             //building map
             List<User> usersWithTheSameDestination = userManager.getUsersForCity(c);
+            usersWithTheSameDestination.remove(currentUser);
             cityUserMap.put(c, usersWithTheSameDestination);
         }
         recyclerViewAdapter.setUserPerCity(cityUserMap);
