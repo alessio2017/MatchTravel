@@ -84,4 +84,12 @@ public class User {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    @Override
+    public boolean equals(Object o){
+        User u = (User) o;
+        return u.getName().equals(this.getName()) && u.getSurname().equals(this.getSurname()) &&
+                u.getAge().equals(this.getAge()) && u.getCountry().equals(this.getCountry()) &&
+                u.getDescription().equals(this.getDescription());
+    }
 }

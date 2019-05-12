@@ -882,7 +882,7 @@ public class CityManager {
     public List<City> getRandomCities(){
         Random random = new Random();
         /*numero casuale di città*/
-        int numberCities = random.nextInt(10) + 1;
+        int numberCities = 10 + random.nextInt(7);
         List<City> cities = new ArrayList<>();
         /*Usata per evitare ripetizioni sulle città scelte*/
         List<Integer> retrieved = new ArrayList<>();
@@ -1014,6 +1014,10 @@ public class CityManager {
         /*Ritorna la città associata al nome. Notare che non compie azioni di modifica
         * della stringa di ricerca.*/
         return cityBox.query().equal(City_.name, name).build().findFirst();
+    }
+
+    public List<City> getAllCities() {
+        return cityBox.getAll();
     }
 }
 

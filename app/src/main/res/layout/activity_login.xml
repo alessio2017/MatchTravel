@@ -24,13 +24,14 @@
             android:id="@+id/btn_facebook_access"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/btn_facebook_access" />
+            app:srcCompat="@drawable/btn_facebook_access"
+            android:contentDescription="@string/facebook_social_button"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/google_btn_area"
         android:layout_width="match_parent"
-        android:layout_height="74dp"
+        android:layout_height="82dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:gravity="center_horizontal"
@@ -44,7 +45,8 @@
             android:id="@+id/btn_google_access"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/btn_google_access" />
+            app:srcCompat="@drawable/btn_google_access"
+            android:contentDescription="@string/google_social_button"/>
     </LinearLayout>
 
     <ImageView
@@ -57,7 +59,8 @@
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/app_logo"/>
 
     <TextView
         android:id="@+id/label_two"

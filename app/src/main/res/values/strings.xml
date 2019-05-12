@@ -33,13 +33,13 @@
     <string name="sharedPref_current_user">currentUser</string>
     <string name="sharedPref_firstLogin">isFirstLogin</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--Stringe create automaticamente-->
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="survey">Survey</string>
     <string name="profile">Profile</string>
     <string name="search_your_destination">Search your destination</string>
-    <string name="type_your_city">Type your city...</string>
+    <string name="type_your_city">Type your city…</string>
     <string name="yourprofile">Your Profile</string>
     <string name="edit">Edit</string>
     <string name="privacy_and_conditions">Privacy and conditions</string>
@@ -47,5 +47,13 @@
     <string name="facebook_social_button">facebook social button</string>
     <string name="instagram_social_button">instagram social button</string>
     <string name="mail_social_button">mail social button</string>
+    <string name="google_social_button">Google social button</string>
+    <string name="app_logo">app logo</string>
+    <string name="results">Results</string>
+    <string name="continue_string">Continue</string>
+    <string name="repeat_string">Repeat</string>
+    <string name="image_of_the_city">image of the city</string>
+    <string name="add_to_favourites_button">add to favourites button</string>
+    <string name="go_to_user_profile">go to user profile</string>
 
 </resources>

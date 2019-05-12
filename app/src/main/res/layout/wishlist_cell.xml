@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -32,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/img_user"
+            android:contentDescription="@string/image_of_the_city"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,20 +59,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:background="@drawable/icon_star"
+            android:contentDescription="@string/add_to_favourites_button"
             app:layout_constraintBottom_toBottomOf="@+id/cityName"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cityName"
             app:layout_constraintTop_toTopOf="@+id/cityName" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageUser1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="80dp"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:minHeight="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/img_user"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/imageCity"
-            app:srcCompat="@drawable/img_user" />
+            app:layout_constraintTop_toBottomOf="@+id/imageCity" />
 
         <TextView
             android:id="@+id/userName1"
@@ -93,19 +98,24 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_go_to_profile"
+            android:contentDescription="@string/go_to_user_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName1"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintTop_toTopOf="@+id/userName1" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageUser2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="80dp"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:minHeight="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/img_user"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/imageUser1"
-            app:srcCompat="@drawable/img_user" />
+            app:layout_constraintTop_toBottomOf="@+id/imageUser1"/>
 
         <TextView
             android:id="@+id/userName2"
@@ -126,19 +136,24 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_go_to_profile"
+            android:contentDescription="@string/go_to_user_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName2"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintTop_toTopOf="@+id/userName2" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageUser3"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="80dp"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:minHeight="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/img_user"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/imageUser2"
-            app:srcCompat="@drawable/img_user" />
+            app:layout_constraintTop_toBottomOf="@+id/imageUser2" />
 
         <TextView
             android:id="@+id/userName3"
@@ -159,6 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_go_to_profile"
+            android:contentDescription="@string/go_to_user_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName3"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintTop_toTopOf="@+id/userName3" />

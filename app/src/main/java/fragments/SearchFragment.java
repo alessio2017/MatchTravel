@@ -70,7 +70,7 @@ public class SearchFragment extends Fragment {
         // adapter per adattare ogni stringa della città ad un singolo elemento della listview
         aa = new ArrayAdapter<String>(
                 getActivity(),
-                android.R.layout.simple_list_item_1,
+                R.layout.city_list_item_custom_view,
                 al
         );
 

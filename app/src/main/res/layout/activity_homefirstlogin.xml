@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_profilepic"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -44,6 +44,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/name"
         android:textSize="24sp"
+        android:fontFamily="@font/coveslight"
         app:layout_constraintStart_toEndOf="@+id/image_profilepic"
         app:layout_constraintTop_toBottomOf="@+id/lbl_welcome" />
 
@@ -53,10 +54,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/coveslight"
         android:text="@string/age"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/image_profilepic"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_name" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <TextView
         android:id="@+id/lbl_status"
@@ -66,6 +68,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/status"
         android:textSize="24sp"
+        android:fontFamily="@font/coveslight"
         app:layout_constraintStart_toEndOf="@+id/image_profilepic"
         app:layout_constraintTop_toBottomOf="@+id/lbl_age" />
 
@@ -77,64 +80,68 @@
         android:layout_marginTop="8dp"
         android:text="@string/country"
         android:textSize="24sp"
+        android:fontFamily="@font/coveslight"
         app:layout_constraintStart_toEndOf="@+id/image_profilepic"
         app:layout_constraintTop_toBottomOf="@+id/lbl_status" />
 
     <TextView
         android:id="@+id/txt_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
+        android:fontFamily="@font/coveslight"
         android:text="@string/name_of_the_users"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
-        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintStart_toEndOf="@+id/lbl_country"
         app:layout_constraintTop_toBottomOf="@+id/lbl_welcome" />
 
     <TextView
         android:id="@+id/txt_age"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
+        android:fontFamily="@font/coveslight"
         android:text="@string/age_user"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
-        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintStart_toEndOf="@+id/lbl_country"
         app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <TextView
         android:id="@+id/txt_status"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
+        android:fontFamily="@font/coveslight"
         android:text="@string/status_user"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.756"
-        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintStart_toEndOf="@+id/lbl_country"
         app:layout_constraintTop_toBottomOf="@+id/txt_age" />
 
     <TextView
         android:id="@+id/txt_country"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
+        android:fontFamily="@font/coveslight"
         android:text="@string/country_user"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
-        app:layout_constraintStart_toEndOf="@+id/lbl_name"
+        app:layout_constraintStart_toEndOf="@+id/lbl_country"
         app:layout_constraintTop_toBottomOf="@+id/txt_status" />
 
     <TextView
@@ -155,28 +162,33 @@
         android:layout_height="230dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
         android:autofillHints="Just joined this application! write me"
-        android:background="@color/light_grey"
+        android:background="@drawable/wishlist_cell_shape"
         android:fontFamily="@font/covesbold"
         android:gravity="top"
         android:hint="@string/speak_about_yourself"
         android:inputType="textMultiLine"
         android:lines="5"
         android:maxLength="200"
+        android:padding="8dp"
         android:singleLine="false"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/lbl_about_yourself"
         app:layout_constraintTop_toBottomOf="@+id/lbl_about_yourself"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/btn_find_destinations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/btn_find_destinations"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -184,18 +196,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_description_user"
         app:srcCompat="@drawable/btn_find_your_destination" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/pattern_background_blurred" />
-
 </android.support.constraint.ConstraintLayout>

@@ -9,8 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-
 import datadb.User;
 import fragments.HomeFragment;
 import fragments.ProfileOwnFragment;
@@ -31,7 +29,7 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_wishlist_activity);
+        setContentView(R.layout.activity_wishlist);
 
         this.userManager = new UserManager(ObjectBox.get());
 

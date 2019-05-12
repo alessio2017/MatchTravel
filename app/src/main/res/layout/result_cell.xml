@@ -38,7 +38,6 @@
             android:fontFamily="@font/covesbold"
             android:shadowColor="#000000"
             android:shadowRadius="7.5"
-            android:text="Nome"
             android:textColor="#ffffff"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
