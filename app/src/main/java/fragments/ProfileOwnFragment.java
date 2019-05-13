@@ -71,6 +71,7 @@ public class ProfileOwnFragment extends Fragment {
                 EditText editBox = layout.findViewById(R.id.actual_edit_description_box);
                 String newDescription = editBox.getText().toString();
                 currentUser = userManager.changeDescription(currentUser, newDescription);
+                callback.onUserSelected(currentUser);
                 updateView();
                 layout.findViewById(R.id.edit_container).setVisibility(View.GONE);
             }
