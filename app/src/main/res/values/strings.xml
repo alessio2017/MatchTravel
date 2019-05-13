@@ -47,5 +47,15 @@
     <string name="facebook_social_button">facebook social button</string>
     <string name="instagram_social_button">instagram social button</string>
     <string name="mail_social_button">mail social button</string>
+    <string name="city_name">city_name</string>
+    <string name="image_of_selected_city">image of selected city</string>
+    <string name="add_to_favourites">Add to favourites &#160; </string>
+    <string name="not_in_your_favourite">Not in your favourite</string>
+    <string name="in_your_favourites">In your favourites!</string>
+    <string name="interested_look_for_other_info">Interested? Look for other info</string>
+    <string name="social_icon_of_booking_website">social icon of booking website</string>
+    <string name="social_icon_of_kayak_website">social icon of kayak website</string>
+    <string name="social_icon_of_tripadvisor_website">social icon of tripadvisor website</string>
+    <string name="onclick_come_back_to_previous_activity">onclick come back to previous activity</string>
 
 </resources>

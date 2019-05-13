@@ -4,6 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CityProfileActivity">
+    android:background="@drawable/pattern_background_blurred_up_right" >
+
+    <TextView
+        android:id="@+id/lbl_city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/city_name"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@xml/rounded_edittext"
+        android:contentDescription="@string/image_of_selected_city"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_city_name" />
+
+    <TextView
+        android:id="@+id/lbl_description_of_city"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/coveslight"
+        android:gravity="top"
+        android:lineSpacingExtra="8sp"
+        android:padding="8dp"
+        android:singleLine="false"
+        android:textColor="@android:color/black"
+        android:textColorLink="@color/switch_color"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/switch_to_add_favourites"
+        app:layout_constraintEnd_toEndOf="@id/img_city"
+        app:layout_constraintStart_toStartOf="@id/img_city"
+        app:layout_constraintTop_toBottomOf="@+id/img_city" />
+
+    <Switch
+        android:id="@+id/switch_to_add_favourites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/covesbold"
+        android:padding="8dp"
+        android:text="@string/add_to_favourites"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textOff="@string/not_in_your_favourite"
+        android:textOn="@string/in_your_favourites"
+        android:textSize="24sp"
+        android:theme="@style/SCBSwitch"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_websites_cities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/coveslight"
+        android:text="@string/interested_look_for_other_info"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <ImageView
+        android:id="@+id/icon_booking_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/social_icon_of_booking_website"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_websites_cities"
+        app:srcCompat="@drawable/booking_icon" />
+
+    <ImageView
+        android:id="@+id/icon_kayal_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/social_icon_of_kayak_website"
+        app:layout_constraintStart_toEndOf="@+id/icon_booking_social"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_websites_cities"
+        app:srcCompat="@drawable/kayak_icon" />
+
+    <ImageView
+        android:id="@+id/icon_tripadvisor_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/social_icon_of_tripadvisor_website"
+        app:layout_constraintStart_toEndOf="@+id/icon_kayal_social"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_websites_cities"
+        app:srcCompat="@drawable/trip_advisor_icon" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82"/>
+
+    <ImageView
+        android:id="@+id/btn_back_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/onclick_come_back_to_previous_activity"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_city_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lbl_city_name"
+        app:srcCompat="@drawable/back_arrow" />
+
 
 </android.support.constraint.ConstraintLayout>

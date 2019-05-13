@@ -125,6 +125,7 @@ public class Result extends AppCompatActivity implements ResultViewHolder.OnTouc
 
     @Override
     public void onTouchInfoButton(City city) {
-        //TODO: profilo città
+        //
+
     }
 }

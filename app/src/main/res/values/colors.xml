@@ -7,4 +7,5 @@
     <color name="light_grey">#f0f0f5</color>
     <color name="dark_grey">#ebebeb</color>
     <color name="city_name">#636363</color>
+    <color name="switch_color">#FFD700</color>
 </resources>
