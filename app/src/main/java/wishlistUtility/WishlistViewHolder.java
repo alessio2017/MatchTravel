@@ -13,6 +13,7 @@ import java.util.List;
 
 import datadb.City;
 import datadb.User;
+import de.hdodenhof.circleimageview.CircleImageView;
 import matchtravel.com.matchtravel.R;
 
 public class WishlistViewHolder extends RecyclerView.ViewHolder {
@@ -22,9 +23,9 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
     private TextView user2Name;
     private TextView user3Name;
     private ImageView cityImage;
-    private ImageView user1Image;
-    private ImageView user2Image;
-    private ImageView user3Image;
+    private CircleImageView user1Image;
+    private CircleImageView user2Image;
+    private CircleImageView user3Image;
     private ImageView contactUser1;
     private ImageView contactUser2;
     private ImageView contactUser3;

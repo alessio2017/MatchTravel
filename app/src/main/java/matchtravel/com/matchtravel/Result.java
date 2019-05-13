@@ -101,7 +101,7 @@ public class Result extends AppCompatActivity implements ResultViewHolder.OnTouc
         btnRepeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userManager.addDestination(currentUser,toAdd);
+                currentUser = userManager.addDestination(currentUser,toAdd);
                 Intent repeatSurvey = new Intent(Result.this, SurveyActivity.class);
                 startActivity(repeatSurvey);
             }
@@ -117,6 +117,7 @@ public class Result extends AppCompatActivity implements ResultViewHolder.OnTouc
     public void onTouchImage(City city) {
         //adding city to destination list
         toAdd.add(city);
+        //TODO: se un utente clicca su una città bisogna far comparire l' icona del cestino sopra quella dell' info-
         //removing from list
         adapter.removeItem(city);
         //notify to the user that the city is now one of his desired destination
