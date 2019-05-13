@@ -1,5 +1,6 @@
 package fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
@@ -24,7 +25,9 @@ import java.util.Locale;
 
 import javax.annotation.Nullable;
 
+import matchtravel.com.matchtravel.CityProfileActivity;
 import matchtravel.com.matchtravel.R;
+import matchtravel.com.matchtravel.Result;
 import matchtravel.com.matchtravel.WishListActivity;
 
 import static android.R.layout.simple_list_item_1;
@@ -89,7 +92,9 @@ public class SearchFragment extends Fragment {
                 String s = aa.getItem(position);
 
                 //TODO intent che va alla pagina della città cliccata
-                Toast.makeText(getContext().getApplicationContext(), "presto potrai andare al profilo della città: " + s, Toast.LENGTH_LONG).show();
+                Intent goToProfileOfCitySelected = new Intent(getActivity(), CityProfileActivity.class);
+                goToProfileOfCitySelected.putExtra("city_name",s);
+                startActivity(goToProfileOfCitySelected);
 
             }
         });

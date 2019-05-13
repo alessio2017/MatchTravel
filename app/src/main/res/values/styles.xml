@@ -28,4 +28,16 @@
         <item name="fontFamily">@font/covesbold</item>
     </style>
 
+    <!--questo permette la modifica dei colori e dello stile dello switch -->
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">#FFD700</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#57221F1F</item>
+    </style>
+
 </resources>
