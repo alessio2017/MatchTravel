@@ -3,6 +3,7 @@ package fragments;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,8 +27,6 @@ import objectBoxUtility.UserManager;
 
 public class ProfileOwnFragment extends Fragment {
 
-    private TextView edit_btn;
-    private TextView terms;
     private TextView privacy_own;
 
     private TextView ageOwn;
@@ -45,15 +44,14 @@ public class ProfileOwnFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile_own, container, false);
         this.layout = view;
         this.userManager = new UserManager(ObjectBox.get());
         this.context = getContext();
 
-        edit_btn = view.findViewById(R.id.edit);
-        terms = view.findViewById(R.id.terms);
+        TextView edit_btn = view.findViewById(R.id.edit);
         privacy_own = view.findViewById(R.id.privacy_own);
 
         ageOwn = view.findViewById(R.id.ageown);
@@ -119,12 +117,17 @@ public class ProfileOwnFragment extends Fragment {
                                 0);
                         //update current user
                         int newId;
-                        if(user.getName().equals("Daniele"))
-                            newId = 0;
-                        else if(user.getName().equals("Alessio"))
-                            newId = 1;
-                        else
-                            newId = 2;
+                        switch (user.getName()) {
+                            case "Daniele":
+                                newId = 0;
+                                break;
+                            case "Alessio":
+                                newId = 1;
+                                break;
+                            default:
+                                newId = 2;
+                                break;
+                        }
 
                         if(newId != currentUserId){
                             //the activity now have the new current user
@@ -133,7 +136,7 @@ public class ProfileOwnFragment extends Fragment {
                             //the sharedPreferences are updated
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putInt(context.getString(R.string.sharedPref_current_user), newId);
-                            editor.commit();
+                            editor.apply();
 
                             Log.i("CAMBIO PROFILO", "RIUSCITO");
                         }

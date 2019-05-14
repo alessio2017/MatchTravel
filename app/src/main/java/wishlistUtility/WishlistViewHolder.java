@@ -111,12 +111,16 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        this.plusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onPlusButtonClicked(users);
-            }
-        });
+        if(users.size()<=3){
+            this.plusBtn.setVisibility(View.GONE);
+        }else {
+            this.plusBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onPlusButtonClicked(users);
+                }
+            });
+        }
     }
 
     /*interfaccia per comunicare al fragment "HomeFragment" che è stato cliccato il pulsante "+"*/

@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 
 import java.util.List;
 
@@ -31,15 +29,6 @@ public class MoreUserDialog extends Dialog{
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_more_user_wishlist);
         recyclerView = findViewById(R.id.more_user_recycler_view);
-        //TODO: modificare pulsante
-        Button done = findViewById(R.id.more_user_btn_return);
-        final Dialog thisDialog = this;
-        done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                thisDialog.dismiss();
-            }
-        });
         updateView();
     }
 

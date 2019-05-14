@@ -30,6 +30,11 @@ public class DialogListViewHolder extends RecyclerView.ViewHolder {
             this.imageUser.setImageDrawable(image);
         String name = user.getName() + "\n" + user.getSurname();
         this.nameUser.setText(name);
-        //TODO: bind button
+        this.contactUserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: go to personal profile of user
+            }
+        });
     }
 }
