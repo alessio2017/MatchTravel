@@ -1,6 +1,8 @@
 package fragments;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,12 +19,14 @@ import javax.annotation.Nullable;
 
 import datadb.City;
 import datadb.User;
+import dialogWishlistCellUtility.MoreUserDialog;
 import matchtravel.com.matchtravel.R;
 import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 import wishlistUtility.WishlistAdapter;
+import wishlistUtility.WishlistViewHolder;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements WishlistViewHolder.OnPlusButtonClickListener {
 
     private User currentUser;
     private View layout;
@@ -30,7 +34,7 @@ public class HomeFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         this.layout = inflater.inflate(R.layout.fragment_home, container, false);
         if(currentUser!=null)
@@ -87,5 +91,14 @@ public class HomeFragment extends Fragment {
         }else{
             layout.findViewById(R.id.textViewHome).setVisibility(View.GONE);
         }
+    }
+
+    /*Open dialog window where the user see all the users that share a destination with him*/
+    @Override
+    public void onPlusButtonClicked(List<User> users) {
+        Context context = layout.getContext();
+        MoreUserDialog dialog = new MoreUserDialog(context);
+        dialog.setUsers(users);
+        dialog.show();
     }
 }

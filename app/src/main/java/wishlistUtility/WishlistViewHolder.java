@@ -1,7 +1,6 @@
 package wishlistUtility;
 
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -30,6 +29,9 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
     private ImageView contactUser2;
     private ImageView contactUser3;
     private ImageView favouriteBtn;
+    private ImageButton plusBtn;
+
+    private OnPlusButtonClickListener listener;
 
     public WishlistViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -48,6 +50,8 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
         this.contactUser3 = itemView.findViewById(R.id.buttonGoToProfile3);
         //star button
         this.favouriteBtn = itemView.findViewById(R.id.buttonStar);
+        //plus button
+        this.plusBtn = itemView.findViewById(R.id.icon_plus);
     }
 
     public void bindData(final City city, final List<User> users, Drawable image){
@@ -106,5 +110,25 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
                 //TODO: rimuovere la città tra le preferite dell'utente, deve uscire un popup del tipo: "sei sicuro di..."
             }
         });
+
+        if(users.size()<=3){
+            this.plusBtn.setVisibility(View.GONE);
+        }else {
+            this.plusBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onPlusButtonClicked(users);
+                }
+            });
+        }
+    }
+
+    /*interfaccia per comunicare al fragment "HomeFragment" che è stato cliccato il pulsante "+"*/
+    public interface OnPlusButtonClickListener {
+        void onPlusButtonClicked(List<User> users);
+    }
+
+    public void setOnPlusButtonClickedListener(OnPlusButtonClickListener listener){
+        this.listener = listener;
     }
 }
