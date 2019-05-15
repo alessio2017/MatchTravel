@@ -1,10 +1,8 @@
 package wishlistUtility;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.view.menu.ActionMenuItem;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
@@ -46,7 +44,7 @@ public class WishlistAdapter extends RecyclerView.Adapter {
         Drawable image = parent.getActivity().getDrawable(resourceId);
 
         ((WishlistViewHolder) viewHolder).bindData(cities.get(i), userPerCity.get(i), image);
-        ((WishlistViewHolder) viewHolder).setOnPlusButtonClickedListener((WishlistViewHolder.OnPlusButtonClickListener) parent);
+        ((WishlistViewHolder) viewHolder).setOnPlusButtonClickedListener((WishlistViewHolder.OnWhishListCellClickListener) parent);
     }
 
     @Override
