@@ -10,11 +10,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
 import datadb.User;
-import fragmentSurvey.Question;
+import fragments.Question;
 import fragments.HomeFragment;
 import fragments.ProfileOwnFragment;
 import fragments.SearchFragment;
-import fragments.SurveyFragment;
 import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 

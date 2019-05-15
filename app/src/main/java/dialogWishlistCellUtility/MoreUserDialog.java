@@ -22,11 +22,11 @@ public class MoreUserDialog extends Dialog{
     public MoreUserDialog(@NonNull Context context) {
         super(context);
         this.context = context;
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_more_user_wishlist);
         recyclerView = findViewById(R.id.more_user_recycler_view);
         updateView();
