@@ -10,6 +10,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
 import datadb.User;
+import fragmentSurvey.Question;
 import fragments.HomeFragment;
 import fragments.ProfileOwnFragment;
 import fragments.SearchFragment;
@@ -83,7 +84,7 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
                 fragment = new SearchFragment();
                 break;
             case R.id.survey_fragment_button:
-                fragment = new SurveyFragment();
+                fragment = new Question();
                 break;
             case R.id.profile_own_fragment_button:
                 fragment = new ProfileOwnFragment();
