@@ -1,6 +1,8 @@
 package fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -111,5 +113,27 @@ public class HomeFragment extends Fragment implements WishlistViewHolder.OnWhish
         intent.putExtra("city_name", city.getName());
         intent.putExtra("fromResult", false);
         startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onStartButtonClicked(final City city) {
+        /*User has clicked the star button. May he want to delete this city?*/
+        final AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+        alertDialog.setMessage("Are you sure you want to delete this city?");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                currentUser = (new UserManager(ObjectBox.get())).removeDestination(currentUser, city);
+                setCurrentUser(currentUser);
+            }
+        });
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
     }
 }

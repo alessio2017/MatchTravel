@@ -106,7 +106,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
         this.favouriteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: rimuovere la città tra le preferite dell'utente, deve uscire un popup del tipo: "sei sicuro di..."
+                listener.onStartButtonClicked(city);
             }
         });
 
@@ -140,6 +140,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
     public interface OnWhishListCellClickListener {
         void onPlusButtonClicked(List<User> users);
         void onCityClicked(City city);
+        void onStartButtonClicked(City city);
     }
 
     public void setOnPlusButtonClickedListener(OnWhishListCellClickListener listener){
