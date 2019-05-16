@@ -1,5 +1,6 @@
 package matchtravel.com.matchtravel;
 
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,11 +8,14 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import datadb.City;
+import datadb.User;
 import objectBoxUtility.CityManager;
 import objectBoxUtility.ObjectBox;
+import objectBoxUtility.UserManager;
 
 public class CityProfileActivity extends AppCompatActivity {
 
@@ -46,6 +50,28 @@ public class CityProfileActivity extends AppCompatActivity {
             }
         });
 
+        //verifica che la città sia presente o meno nella lista dell'utente
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.sharedPref_file), MODE_PRIVATE);
+        int currentUserId = sharedPreferences.getInt(getString(R.string.sharedPref_current_user), 0);
+        UserManager userManager = new UserManager(ObjectBox.get());
+        User currentUser;
+        switch (currentUserId){
+            case 0:
+                currentUser = userManager.getRealUser("Daniele");
+                break;
+            case 1:
+                currentUser = userManager.getRealUser("Alessio");
+                break;
+            default:
+                currentUser = userManager.getRealUser("Umberto");
+                break;
+        }
+
+        boolean cityIsAmongFavourite = currentUser.getDestinations().contains(city);
+        if(cityIsAmongFavourite){
+            /*the switch button must be triggered*/
+            ((Switch)findViewById(R.id.switch_to_add_favourites)).toggle();
+        }
     }
 
     //questo metodo setta il nome, la descrizione e l'immagine della città
@@ -68,4 +94,5 @@ public class CityProfileActivity extends AppCompatActivity {
         return image;
     }
 
+    //TODO: gestire aggiunta o eliminazione dal current user
 }
