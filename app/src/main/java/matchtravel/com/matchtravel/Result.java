@@ -128,6 +128,7 @@ public class Result extends AppCompatActivity implements ResultViewHolder.OnTouc
     public void onTouchInfoButton(City city) {
         Intent intent = new Intent(Result.this, CityProfileActivity.class);
         intent.putExtra("city_name",city.getName());
-        startActivity(intent);
+        intent.putExtra("fromResult", true);
+        startActivityForResult(intent,1);
     }
 }

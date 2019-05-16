@@ -109,6 +109,7 @@ public class HomeFragment extends Fragment implements WishlistViewHolder.OnWhish
     public void onCityClicked(City city) {
         Intent intent = new Intent(this.getActivity(), CityProfileActivity.class);
         intent.putExtra("city_name", city.getName());
-        startActivity(intent);
+        intent.putExtra("fromResult", false);
+        startActivityForResult(intent, 1);
     }
 }
