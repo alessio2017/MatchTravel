@@ -390,7 +390,7 @@ public class UserManager {
 
     public User removeDestination(User user, City city){
         if(user.destinations.contains(city)){
-            user.destinations.remove(city);
+            user.destinations.removeById(city.id);
             userBox.put(user);
         }
         return user;
