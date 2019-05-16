@@ -93,7 +93,7 @@ public class UserManager {
         u = new User();
         u.name="Anna";
         u.surname="Gruman";
-        cal.set(1974,25,7);
+        cal.set(1974,5,7);
         u.age = cal.getTime();
         u.status = statusSingle;
         u.country = countryIrl;

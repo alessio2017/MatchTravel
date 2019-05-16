@@ -1,0 +1,170 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileNotOwn"
+    android:background="@drawable/bgprofilenotown">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_profilepic"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/user_profile_pic"
+        android:maxWidth="120dp"
+        android:maxHeight="120dp"
+        android:src="@drawable/img_user"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/covesbold"
+        android:text="@string/name_of_the_users"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toTopOf="@+id/image_profilepic" />
+
+    <TextView
+        android:id="@+id/ageown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/age_user"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:fontFamily="@font/coveslight"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+
+    <TextView
+        android:id="@+id/stateown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/status_user"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:fontFamily="@font/coveslight"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/ageown" />
+
+    <TextView
+        android:id="@+id/nationown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/country_user"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:fontFamily="@font/coveslight"
+        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+        app:layout_constraintTop_toBottomOf="@+id/stateown" />
+
+    <TextView
+        android:id="@+id/edit_own"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@xml/rounded_edittext"
+        android:fontFamily="@font/covesbold"
+        android:gravity="top"
+        android:hint="Press 'Edit' and type something about yourself!"
+        android:inputType="none"
+        android:lines="5"
+        android:maxLength="200"
+        android:padding="8dp"
+        android:singleLine="false"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/facebook"
+        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/facebook_social_button"
+        android:minWidth="35dp"
+        android:minHeight="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:srcCompat="@drawable/facebook" />
+
+    <ImageView
+        android:id="@+id/instagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/instagram_social_button"
+        android:minWidth="35dp"
+        android:minHeight="35dp"
+        app:layout_constraintStart_toEndOf="@+id/facebook"
+        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:srcCompat="@drawable/instagram" />
+
+    <ImageView
+        android:id="@+id/mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mail_social_button"
+        android:minWidth="35dp"
+        android:minHeight="35dp"
+        app:layout_constraintStart_toEndOf="@+id/instagram"
+        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:srcCompat="@drawable/mail" />
+
+    <TextView
+        android:id="@+id/listcity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/covesbold"
+        android:text="Where Franco wants to go: "
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/cityRecyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/cityRecyclerView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cityRecyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/edit_own" />
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/cityRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/wishlist_cell_shape"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edit_own"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_own"
+        app:layout_constraintTop_toBottomOf="@+id/edit_own" />
+
+</android.support.constraint.ConstraintLayout>

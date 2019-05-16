@@ -1,6 +1,7 @@
 package fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,6 +22,7 @@ import java.util.Date;
 import javax.annotation.Nullable;
 
 import datadb.User;
+import matchtravel.com.matchtravel.ProfileNotOwn;
 import matchtravel.com.matchtravel.R;
 import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
@@ -62,6 +64,18 @@ public class ProfileOwnFragment extends Fragment {
 
         Button editDone = view.findViewById(R.id.edit_btn_done);
         Button editCancel = view.findViewById(R.id.edit_btn_cancel);
+
+
+        Button terms = view.findViewById(R.id.terms);
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getActivity(), ProfileNotOwn.class);
+                myIntent.putExtra("name", "Mark");
+                myIntent.putExtra("surname", "Huffman");
+                startActivity(myIntent);
+            }
+        });
 
         editDone.setOnClickListener(new View.OnClickListener() {
             @Override
