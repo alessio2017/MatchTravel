@@ -1,6 +1,9 @@
 package fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -20,13 +23,14 @@ import javax.annotation.Nullable;
 import datadb.City;
 import datadb.User;
 import dialogWishlistCellUtility.MoreUserDialog;
+import matchtravel.com.matchtravel.CityProfileActivity;
 import matchtravel.com.matchtravel.R;
 import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 import wishlistUtility.WishlistAdapter;
 import wishlistUtility.WishlistViewHolder;
 
-public class HomeFragment extends Fragment implements WishlistViewHolder.OnPlusButtonClickListener {
+public class HomeFragment extends Fragment implements WishlistViewHolder.OnWhishListCellClickListener {
 
     private User currentUser;
     private View layout;
@@ -100,5 +104,36 @@ public class HomeFragment extends Fragment implements WishlistViewHolder.OnPlusB
         MoreUserDialog dialog = new MoreUserDialog(context);
         dialog.setUsers(users);
         dialog.show();
+    }
+
+    /*Open activity where city info are shown*/
+    @Override
+    public void onCityClicked(City city) {
+        Intent intent = new Intent(this.getActivity(), CityProfileActivity.class);
+        intent.putExtra("city_name", city.getName());
+        intent.putExtra("fromResult", false);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onStartButtonClicked(final City city) {
+        /*User has clicked the star button. May he want to delete this city?*/
+        final AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+        alertDialog.setMessage("Are you sure you want to delete this city?");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                currentUser = (new UserManager(ObjectBox.get())).removeDestination(currentUser, city);
+                setCurrentUser(currentUser);
+            }
+        });
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
     }
 }

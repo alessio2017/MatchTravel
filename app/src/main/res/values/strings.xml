@@ -66,4 +66,11 @@
     <string name="add_to_favourites_button">add to favourites button</string>
     <string name="go_to_user_profile">go to user profile</string>
 
+    <!--Question text for survey-->
+    <string name="first_question">Which kind of trip do you like to do this time?</string>
+    <string name="second_question">Do you like travel abroad or locally?</string>
+    <string name="third_question">Which is your budget?</string>
+    <string name="fourth_question">What would you like to do once arrived?</string>
+    <string name="fifth_question">How much are you annoyed by the tourist?</string>
+    <string name="sixth_question">Hot or cold?</string>
 </resources>

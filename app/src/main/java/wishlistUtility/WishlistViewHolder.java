@@ -31,7 +31,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
     private ImageView favouriteBtn;
     private ImageButton plusBtn;
 
-    private OnPlusButtonClickListener listener;
+    private OnWhishListCellClickListener listener;
 
     public WishlistViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -57,7 +57,6 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
     public void bindData(final City city, final List<User> users, Drawable image){
         cityName.setText(city.getName());
         cityImage.setImageDrawable(image);
-        //TODO: set button star
 
         String userName = "";
 
@@ -107,7 +106,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
         this.favouriteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: rimuovere la città tra le preferite dell'utente, deve uscire un popup del tipo: "sei sicuro di..."
+                listener.onStartButtonClicked(city);
             }
         });
 
@@ -121,14 +120,30 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
                 }
             });
         }
+
+        this.cityImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onCityClicked(city);
+            }
+        });
+
+        this.cityName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onCityClicked(city);
+            }
+        });
     }
 
     /*interfaccia per comunicare al fragment "HomeFragment" che è stato cliccato il pulsante "+"*/
-    public interface OnPlusButtonClickListener {
+    public interface OnWhishListCellClickListener {
         void onPlusButtonClicked(List<User> users);
+        void onCityClicked(City city);
+        void onStartButtonClicked(City city);
     }
 
-    public void setOnPlusButtonClickedListener(OnPlusButtonClickListener listener){
+    public void setOnPlusButtonClickedListener(OnWhishListCellClickListener listener){
         this.listener = listener;
     }
 }

@@ -63,7 +63,7 @@ public class SearchFragment extends Fragment {
                 "Munich", "Bern", "Manchester", "Oxford", "Dublin", "Washington", "Los Angeles",
                 "Mexico City", "Agrigento", "Otranto", "Gallipoli", "Vieste", "Geneva", "Dubai",
                 "Maldive", "Mykonos", "Athens", "Dusseldorf", "Ibiza", "Miami", "San Francisco",
-                "Cairo", "Instanbul", "Sydney", "Singapore", "Shenzen", "Delhi", "Mumbai",
+                "Cairo", "Instanbul", "Sydney", "Singapore", "Shenzhen", "Delhi", "Mumbai",
                 "Kuala Lumpar", "Buenos Aires", "Cordoba", "Havana"};
 
 
@@ -91,11 +91,10 @@ public class SearchFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 String s = aa.getItem(position);
-
-                //TODO intent che va alla pagina della città cliccata
                 Intent goToProfileOfCitySelected = new Intent(getActivity(), CityProfileActivity.class);
                 goToProfileOfCitySelected.putExtra("city_name",s);
-                startActivity(goToProfileOfCitySelected);
+                goToProfileOfCitySelected.putExtra("fromResult", false);
+                startActivityForResult(goToProfileOfCitySelected,1);
 
             }
         });

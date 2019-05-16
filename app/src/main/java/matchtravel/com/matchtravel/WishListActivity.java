@@ -1,6 +1,7 @@
 package matchtravel.com.matchtravel;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,11 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
+import datadb.City;
 import datadb.User;
+import fragments.Question;
 import fragments.HomeFragment;
 import fragments.ProfileOwnFragment;
 import fragments.SearchFragment;
-import fragments.SurveyFragment;
+import objectBoxUtility.CityManager;
 import objectBoxUtility.ObjectBox;
 import objectBoxUtility.UserManager;
 
@@ -83,7 +86,7 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
                 fragment = new SearchFragment();
                 break;
             case R.id.survey_fragment_button:
-                fragment = new SurveyFragment();
+                fragment = new Question();
                 break;
             case R.id.profile_own_fragment_button:
                 fragment = new ProfileOwnFragment();
@@ -109,5 +112,35 @@ public class WishListActivity extends AppCompatActivity implements BottomNavigat
             ProfileOwnFragment profileOwnFragment = (ProfileOwnFragment) fragment;
             profileOwnFragment.setOnChangeCurrentUserListener(this);
         }
+    }
+
+    /*Chiamato quando ritorna dall'activity CityProfileActivity*/
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+            if(resultCode == RESULT_OK){
+                if(data.getBooleanExtra("CityPreferenceModified", false)){
+                    /*something has been modified*/
+                    String toRemove = data.getStringExtra("RemoveCity");
+                    String toAdd = data.getStringExtra("AddCity");
+
+                    if(toRemove!=null){
+                        /*removing city from user list*/
+                        City city = new CityManager(ObjectBox.get()).getCity(toRemove);
+                        this.currentUser = userManager.removeDestination(currentUser, city);
+                    }else{
+                        /*adding city from user list*/
+                        City city = new CityManager(ObjectBox.get()).getCity(toAdd);
+                        this.currentUser = userManager.addDestination(currentUser, city);
+                    }
+
+                    try{
+                        ((HomeFragment)this.currentFragment).setCurrentUser(currentUser);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+
     }
 }

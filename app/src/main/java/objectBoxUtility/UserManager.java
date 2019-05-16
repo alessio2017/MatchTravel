@@ -364,20 +364,17 @@ public class UserManager {
 
     public User changeDescription(User user, String newDesc){
         /*change the description parameter for the user selected*/
-        user = userBox.get(user.id);
         user.setDescription(newDesc);
-        userBox.remove(user.id);
         userBox.put(user);
         return user;
     }
 
-    public void addDestination(User user, City city){
+    public User addDestination(User user, City city){
         if(!user.destinations.contains(city)){
-            user = userBox.get(user.id);
-            userBox.remove(user.id);
             user.destinations.add(city);
             userBox.put(user);
         }
+        return user;
     }
 
     public User addDestination(User user, List<City> cities){
@@ -386,18 +383,16 @@ public class UserManager {
             if(!user.destinations.contains(c))
                 toBeActuallyAdded.add(c);
         }
-        user = userBox.get(user.id);
         user.destinations.addAll(toBeActuallyAdded);
         userBox.put(user);
         return user;
     }
 
-    public void removeDestination(User user, City city){
-        if(!user.destinations.contains(city)){
-            userBox.remove(user.id);
-            user.destinations.remove(city);
+    public User removeDestination(User user, City city){
+        if(user.destinations.contains(city)){
+            user.destinations.removeById(city.id);
             userBox.put(user);
-
         }
+        return user;
     }
 }
