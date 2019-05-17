@@ -25,6 +25,7 @@
             android:name=".WishListActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Result" />
+        <activity android:name=".ProfileNotOwn"/>
     </application>
 
 </manifest>
