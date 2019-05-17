@@ -117,9 +117,6 @@ public class Result extends AppCompatActivity implements ResultViewHolder.OnTouc
     public void onTouchImage(City city) {
         //adding city to destination list
         toAdd.add(city);
-        //TODO: se un utente clicca su una città bisogna far comparire l' icona del cestino sopra quella dell' info-
-        //removing from list
-        adapter.removeItem(city);
         //notify to the user that the city is now one of his desired destination
         Toast.makeText(this, R.string.notifyCityAdded, Toast.LENGTH_SHORT).show();
     }
@@ -130,5 +127,10 @@ public class Result extends AppCompatActivity implements ResultViewHolder.OnTouc
         intent.putExtra("city_name",city.getName());
         intent.putExtra("fromResult", true);
         startActivityForResult(intent,1);
+    }
+
+    @Override
+    public void onClickDeleteButton(City city) {
+        toAdd.remove(city);
     }
 }
