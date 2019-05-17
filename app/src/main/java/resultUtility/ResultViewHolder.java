@@ -15,6 +15,7 @@ public class ResultViewHolder extends RecyclerView.ViewHolder {
     private ImageView imageCity;
     private ImageView infoCityBtn;
     private TextView cityName;
+    private ImageView deleteCityBtn;
 
     private OnTouchResultCell callback;
 
@@ -24,6 +25,7 @@ public class ResultViewHolder extends RecyclerView.ViewHolder {
         this.imageCity = itemView.findViewById(R.id.result_image_city);
         this.infoCityBtn = itemView.findViewById(R.id.result_info_city);
         this.cityName = itemView.findViewById(R.id.result_city_name);
+        this.deleteCityBtn = itemView.findViewById(R.id.result_delete_btn);
     }
 
     public void bindData(final City city, Drawable imageCity){
@@ -36,12 +38,23 @@ public class ResultViewHolder extends RecyclerView.ViewHolder {
                 callback.onTouchInfoButton(city);
             }
         });
+
         //setting image city
         this.imageCity.setImageDrawable(imageCity);
         this.imageCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 callback.onTouchImage(city);
+                deleteCityBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
+        //setting delete btn
+        this.deleteCityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callback.onClickDeleteButton(city);
+                deleteCityBtn.setVisibility(View.GONE);
             }
         });
     }
@@ -49,6 +62,7 @@ public class ResultViewHolder extends RecyclerView.ViewHolder {
     public interface OnTouchResultCell{
         void onTouchImage(City city);
         void onTouchInfoButton(City city);
+        void onClickDeleteButton(City city);
     }
 
     public void setOnTouchResultCellListener(OnTouchResultCell listener){
