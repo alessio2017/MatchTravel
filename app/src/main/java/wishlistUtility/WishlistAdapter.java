@@ -43,8 +43,8 @@ public class WishlistAdapter extends RecyclerView.Adapter {
         //getting the real image
         Drawable image = parent.getActivity().getDrawable(resourceId);
 
-        ((WishlistViewHolder) viewHolder).bindData(cities.get(i), userPerCity.get(i), image);
         ((WishlistViewHolder) viewHolder).setOnPlusButtonClickedListener((WishlistViewHolder.OnWhishListCellClickListener) parent);
+        ((WishlistViewHolder) viewHolder).bindData(cities.get(i), userPerCity.get(i), image);
     }
 
     @Override

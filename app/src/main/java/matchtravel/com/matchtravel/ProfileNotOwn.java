@@ -4,7 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -48,7 +51,7 @@ public class ProfileNotOwn extends AppCompatActivity {
         TextView status = findViewById(R.id.stateown);
         status.setText(user.getStatus());
         TextView age = findViewById(R.id.ageown);
-        age.setText(Integer.toString(calculateAge(user.getAge())));
+        age.setText(Integer.toString(calculateAge(user.getAge())) + " yo");
         TextView nation = findViewById(R.id.nationown);
         nation.setText(user.getCountry());
         TextView name = findViewById(R.id.txt_name);
@@ -70,6 +73,13 @@ public class ProfileNotOwn extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        ImageView btnBackHome = findViewById(R.id.btnBackHome);
+        btnBackHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     private int calculateAge(Date age) {
         Calendar cal = Calendar.getInstance();

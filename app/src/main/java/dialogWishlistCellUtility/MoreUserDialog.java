@@ -44,7 +44,7 @@ public class MoreUserDialog extends Dialog{
         if(recyclerView!=null){
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             DialogListAdapter adapter = new DialogListAdapter();
-            adapter.setMoreUser(users);
+            adapter.setMoreUser(users, this.getContext());
             recyclerView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         }

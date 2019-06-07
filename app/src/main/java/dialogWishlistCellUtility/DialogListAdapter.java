@@ -1,5 +1,6 @@
 package dialogWishlistCellUtility;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import matchtravel.com.matchtravel.R;
 public class DialogListAdapter extends RecyclerView.Adapter {
 
     private List<User> moreUser;
+    private Context context;
 
     @NonNull
     @Override
@@ -25,7 +27,7 @@ public class DialogListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         //TODO: get image resource
-        ((DialogListViewHolder) viewHolder).bindData(moreUser.get(i),null);
+        ((DialogListViewHolder) viewHolder).bindData(moreUser.get(i),null, context);
     }
 
     @Override
@@ -33,7 +35,8 @@ public class DialogListAdapter extends RecyclerView.Adapter {
         return moreUser.size();
     }
 
-    public void setMoreUser(List<User> users){
+    public void setMoreUser(List<User> users, Context context){
         this.moreUser = users;
+        this.context = context;
     }
 }

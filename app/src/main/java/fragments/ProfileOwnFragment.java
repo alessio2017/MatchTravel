@@ -22,6 +22,7 @@ import java.util.Date;
 import javax.annotation.Nullable;
 
 import datadb.User;
+import matchtravel.com.matchtravel.HelpActivity;
 import matchtravel.com.matchtravel.ProfileNotOwn;
 import matchtravel.com.matchtravel.R;
 import objectBoxUtility.ObjectBox;
@@ -165,6 +166,14 @@ public class ProfileOwnFragment extends Fragment {
             }
         });
 
+        Button help = view.findViewById(R.id.help);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HelpActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
