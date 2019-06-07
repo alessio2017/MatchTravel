@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -97,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/icon_go_to_profile"
+            android:src="@drawable/arrow_gotoprofile"
             android:contentDescription="@string/go_to_user_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName1"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
@@ -107,15 +108,15 @@
             android:id="@+id/imageUser2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="80dp"
-            android:maxWidth="80dp"
-            android:maxHeight="80dp"
-            android:minHeight="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/img_user"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/imageUser1"/>
+            app:layout_constraintTop_toTopOf="@+id/view" />
 
         <TextView
             android:id="@+id/userName2"
@@ -135,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/icon_go_to_profile"
+            android:src="@drawable/arrow_gotoprofile"
             android:contentDescription="@string/go_to_user_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName2"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
@@ -145,15 +146,15 @@
             android:id="@+id/imageUser3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="80dp"
-            android:maxWidth="80dp"
-            android:maxHeight="80dp"
-            android:minHeight="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/img_user"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/imageUser2" />
+            app:layout_constraintTop_toTopOf="@+id/view2" />
 
         <TextView
             android:id="@+id/userName3"
@@ -173,7 +174,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/icon_go_to_profile"
+            android:src="@drawable/arrow_gotoprofile"
             android:contentDescription="@string/go_to_user_profile"
             app:layout_constraintBottom_toBottomOf="@+id/userName3"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
@@ -183,12 +184,11 @@
             android:id="@+id/icon_plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/icon_plus"
+            android:background="@drawable/three_dots"
             android:paddingBottom="8dp"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/imageUser3" />
+            app:layout_constraintTop_toBottomOf="@+id/userName3" />
 
         <!--Serve solo a creare un bordo sotto all'icona +-->
         <View
@@ -198,5 +198,26 @@
             app:layout_constraintTop_toBottomOf="@id/icon_plus"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_height="1dp"
+            android:layout_width="0dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonGoToProfile1"
+            app:layout_constraintStart_toStartOf="@+id/imageUser1"
+            app:layout_constraintTop_toBottomOf="@+id/imageUser1" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/buttonGoToProfile2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageUser2"
+            app:layout_constraintTop_toBottomOf="@+id/imageUser2" />
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>

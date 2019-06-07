@@ -3,6 +3,7 @@ package fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,8 @@ import java.util.Date;
 import javax.annotation.Nullable;
 
 import datadb.User;
+import de.hdodenhof.circleimageview.CircleImageView;
+import matchtravel.com.matchtravel.HelpActivity;
 import matchtravel.com.matchtravel.ProfileNotOwn;
 import matchtravel.com.matchtravel.R;
 import objectBoxUtility.ObjectBox;
@@ -36,6 +39,8 @@ public class ProfileOwnFragment extends Fragment {
     private TextView nationOwn;
     private TextView nameOwn;
     private TextView descriptionOwn;
+    private CircleImageView imagePic;
+
 
     private User currentUser;
     private UserManager userManager;
@@ -61,6 +66,7 @@ public class ProfileOwnFragment extends Fragment {
         nationOwn = view.findViewById(R.id.nationown);
         nameOwn = view.findViewById(R.id.txt_name);
         descriptionOwn = view.findViewById(R.id.edit_own);
+        imagePic = view.findViewById(R.id.image_ownprofilepic);
 
         Button editDone = view.findViewById(R.id.edit_btn_done);
         Button editCancel = view.findViewById(R.id.edit_btn_cancel);
@@ -165,6 +171,14 @@ public class ProfileOwnFragment extends Fragment {
             }
         });
 
+        Button help = view.findViewById(R.id.help);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HelpActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -202,7 +216,10 @@ public class ProfileOwnFragment extends Fragment {
                 else
                     descriptionOwn.setText(defaultDesc);
 
-                //TODO: settare immagine
+                String resName = currentUser.getSurname().toLowerCase().replace(" ", "");
+                int resId = this.getResources().getIdentifier(resName, "drawable", this.getActivity().getPackageName());
+                Drawable res = this.getActivity().getDrawable(resId);
+                this.imagePic.setImageDrawable(res);
             }
         }catch (Exception e){
             e.printStackTrace();

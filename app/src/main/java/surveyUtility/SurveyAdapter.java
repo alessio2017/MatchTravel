@@ -74,19 +74,19 @@ public class SurveyAdapter extends RecyclerView.Adapter {
         }else if (questionId == 2){
             switch (position){
                 case 0:
-                    text = "Very low";
+                    text = "Less than 100€";
                     imageName = "very_low_1";
                     break;
                 case 1:
-                    text = "Low";
+                    text = "100-200€";
                     imageName = "low_1";
                     break;
                 case 2:
-                    text = "Medium";
+                    text = "200-500€";
                     imageName = "medium_1";
                     break;
                 default:
-                    text = "High";
+                    text = "More than 500€";
                     imageName = "high_1";
                     break;
             }

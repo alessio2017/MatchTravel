@@ -1,7 +1,9 @@
 package wishlistUtility;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -13,6 +15,7 @@ import java.util.List;
 import datadb.City;
 import datadb.User;
 import de.hdodenhof.circleimageview.CircleImageView;
+import matchtravel.com.matchtravel.ProfileNotOwn;
 import matchtravel.com.matchtravel.R;
 
 public class WishlistViewHolder extends RecyclerView.ViewHolder {
@@ -54,24 +57,77 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
         this.plusBtn = itemView.findViewById(R.id.icon_plus);
     }
 
-    public void bindData(final City city, final List<User> users, Drawable image){
+    public void bindData(final City city, final List<User> users, Drawable image, Drawable[] userImages){
         cityName.setText(city.getName());
         cityImage.setImageDrawable(image);
 
         String userName = "";
+        final Intent intentGoToUserProfile = new Intent(((Fragment) listener).getContext(), ProfileNotOwn.class);
 
         if(users.size()>0){
             userName = users.get(0).getName() + "\n" + users.get(0).getSurname();
             user1Name.setText(userName);
-            //TODO: set user image
+            user1Name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intentGoToUserProfile.putExtra("name", users.get(0).getName());
+                    intentGoToUserProfile.putExtra("surname",users.get(0).getSurname());
+                    ((Fragment) listener).startActivity(intentGoToUserProfile);
+                }
+            });
+            user1Image.setImageDrawable(userImages[0]);
+
+            this.contactUser1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intentGoToUserProfile.putExtra("name", users.get(0).getName());
+                    intentGoToUserProfile.putExtra("surname",users.get(0).getSurname());
+                    ((Fragment) listener).startActivity(intentGoToUserProfile);
+                }
+            });
+
             if(users.size()>1){
                 userName = users.get(1).getName() + "\n" + users.get(1).getSurname();
                 user2Name.setText(userName);
-                //TODO: set user image
+                user2Name.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intentGoToUserProfile.putExtra("name", users.get(1).getName());
+                        intentGoToUserProfile.putExtra("surname",users.get(1).getSurname());
+                        ((Fragment) listener).startActivity(intentGoToUserProfile);
+                    }
+                });
+                user2Image.setImageDrawable(userImages[1]);
+
+                this.contactUser2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intentGoToUserProfile.putExtra("name", users.get(1).getName());
+                        intentGoToUserProfile.putExtra("surname",users.get(1).getSurname());
+                        ((Fragment) listener).startActivity(intentGoToUserProfile);
+                    }
+                });
                 if(users.size()>2){
                     userName = users.get(2).getName() + "\n" + users.get(2).getSurname();
                     user3Name.setText(userName);
-                    //TODO: set user image
+                    user3Name.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            intentGoToUserProfile.putExtra("name", users.get(2).getName());
+                            intentGoToUserProfile.putExtra("surname",users.get(2).getSurname());
+                            ((Fragment) listener).startActivity(intentGoToUserProfile);
+                        }
+                    });
+                    user3Image.setImageDrawable(userImages[2]);
+
+                    this.contactUser3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            intentGoToUserProfile.putExtra("name", users.get(2).getName());
+                            intentGoToUserProfile.putExtra("surname",users.get(2).getSurname());
+                            ((Fragment) listener).startActivity(intentGoToUserProfile);
+                        }
+                    });
                 }
                 else{
                     //hiding image and button

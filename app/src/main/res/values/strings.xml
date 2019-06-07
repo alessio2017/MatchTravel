@@ -34,13 +34,14 @@
     <string name="sharedPref_firstLogin">isFirstLogin</string>
 
     <!--Stringe create automaticamente-->
-    <string name="home">Home</string>
+    <string name="home">Your favorites</string>
     <string name="search">Search</string>
     <string name="survey">Survey</string>
     <string name="profile">Profile</string>
     <string name="search_your_destination">Search your destination</string>
     <string name="type_your_city">Type your city…</string>
     <string name="yourprofile">Your Profile</string>
+    <string name="help_title">Help and FAQ</string>
     <string name="edit">Edit</string>
     <string name="privacy_and_conditions">Privacy and conditions</string>
     <string name="terms">Terms</string>
@@ -73,4 +74,19 @@
     <string name="fourth_question">What would you like to do once arrived?</string>
     <string name="fifth_question">How much are you annoyed by the tourist?</string>
     <string name="sixth_question">Hot or cold?</string>
+
+    <string name="help_text">Have you some problem in the navigation ? don\'t worry! Below you will find all solutions to all the main tasks.\n\n
+        1. How can I take inspiration from some interesting destinations based on my interests?\n
+        Yes, for sure. After logged into application you have to fill out the questionnaire and based on your answers, MatchTravel will suggest you new interesting destinations! (you can also fill out again when you want the questionnaire in the section on the bottom bar whenever you want, to find other destinations if previous results didn\'t satisfied yourself)\n\n
+        2. Can I search manually a destination?\n
+        Yes, for sure. In the bottom navigation bar menu you will find the "Search" section in which you can search manually one of the destinations present in MatchTravel.\n\n
+        3. Can I edit some info of my profile?\n
+        Yes, but only a description. We made this choice to protect yourself against fake profiles and offering to the client major transparency on legal info of all users in MatchTravel. For this reason you are able to edit only the description and in order to do this you have to reach the "My Profile" section in the bottom navigation bar menu.\n\n
+        4. Where I can find all my favourite destinations choose?\n
+        Every time you fill out a questionnaire and you choose one or more favourite destinations, all them will appaire in the Wish List of the bottom navigation bar. In that section you will find also all the people interested on the same destinations you choose.\n\n
+        5. Can I see major details on the cities?\n
+        Yes, of course. Every time you got results of a questionnaire or you search manually a destination, you can accede to all details of that city simply clicking on the name of city. You will be redirected on a screen in which will be showed a little description of that city and a button to add/remove that city from favourites.\n\n
+        We solved your doubts? hope to yes! if you are not satisfied at all please feel free to contact us at match.travel2019@gmail.com
+    </string>
+    <string name="txt_welcome">Welcome! This is the first time you log in Match Travel. Soon you will be able to enjoy the application but first we need you to describe a little yourself.\nType something down here.</string>
 </resources>

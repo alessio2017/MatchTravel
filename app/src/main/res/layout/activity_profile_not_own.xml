@@ -54,10 +54,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="7dp"
+        android:fontFamily="@font/coveslight"
         android:text="@string/status_user"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:fontFamily="@font/coveslight"
         app:layout_constraintStart_toEndOf="@+id/image_profilepic"
         app:layout_constraintTop_toBottomOf="@+id/ageown" />
 
@@ -65,14 +65,13 @@
         android:id="@+id/nationown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/coveslight"
         android:text="@string/country_user"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:fontFamily="@font/coveslight"
-        app:layout_constraintStart_toEndOf="@+id/image_profilepic"
-        app:layout_constraintTop_toBottomOf="@+id/stateown" />
+        app:layout_constraintStart_toEndOf="@+id/ageown"
+        app:layout_constraintTop_toTopOf="@+id/ageown" />
 
     <TextView
         android:id="@+id/edit_own"
@@ -84,10 +83,7 @@
         android:background="@xml/rounded_edittext"
         android:fontFamily="@font/covesbold"
         android:gravity="top"
-        android:hint="Press 'Edit' and type something about yourself!"
         android:inputType="none"
-        android:lines="5"
-        android:maxLength="200"
         android:padding="8dp"
         android:singleLine="false"
         android:textColor="@android:color/black"
@@ -96,17 +92,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/facebook"
         tools:ignore="MissingConstraints" />
+
     <ImageView
         android:id="@+id/facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/facebook_social_button"
         android:minWidth="35dp"
         android:minHeight="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:layout_constraintStart_toStartOf="@+id/stateown"
+        app:layout_constraintTop_toBottomOf="@+id/stateown"
         app:srcCompat="@drawable/facebook" />
 
     <ImageView
@@ -114,12 +110,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:contentDescription="@string/instagram_social_button"
         android:minWidth="35dp"
         android:minHeight="35dp"
         app:layout_constraintStart_toEndOf="@+id/facebook"
-        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:layout_constraintTop_toTopOf="@+id/facebook"
         app:srcCompat="@drawable/instagram" />
 
     <ImageView
@@ -127,44 +122,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:contentDescription="@string/mail_social_button"
         android:minWidth="35dp"
         android:minHeight="35dp"
         app:layout_constraintStart_toEndOf="@+id/instagram"
-        app:layout_constraintTop_toBottomOf="@+id/nationown"
+        app:layout_constraintTop_toTopOf="@+id/facebook"
         app:srcCompat="@drawable/mail" />
 
     <TextView
         android:id="@+id/listcity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/covesbold"
         android:text="Where Franco wants to go: "
         android:textColor="@android:color/black"
         android:textSize="15sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/cityRecyclerView"
         app:layout_constraintEnd_toEndOf="@+id/cityRecyclerView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/cityRecyclerView"
         app:layout_constraintTop_toBottomOf="@+id/edit_own" />
 
     <android.support.v7.widget.RecyclerView
-
         android:id="@+id/cityRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/wishlist_cell_shape"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edit_own"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edit_own"
-        app:layout_constraintTop_toBottomOf="@+id/edit_own" />
+        app:layout_constraintTop_toBottomOf="@+id/listcity" />
+
+    <ImageView
+        android:id="@+id/btnBackHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/btn_back_home" />
+
 
 </android.support.constraint.ConstraintLayout>
