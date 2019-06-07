@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +32,8 @@ public class DialogListViewHolder extends RecyclerView.ViewHolder {
     public void bindData(final User user, Drawable image, final Context context){
         if(image!=null)
             this.imageUser.setImageDrawable(image);
+        else
+            Log.e("DIALOG USER", "Image for user " +user.getSurname() + " not found.");
         String name = user.getName() + "\n" + user.getSurname();
         this.nameUser.setText(name);
         this.nameUser.setOnClickListener(new View.OnClickListener() {

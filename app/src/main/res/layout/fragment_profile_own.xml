@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image_profilepic"
+            android:id="@+id/image_ownprofilepic"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginStart="32dp"
@@ -58,7 +58,7 @@
             android:id="@+id/txt_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="21dp"
             android:layout_marginEnd="32dp"
             android:fontFamily="@font/covesbold"
@@ -66,46 +66,43 @@
             android:textColor="@android:color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintStart_toEndOf="@+id/image_ownprofilepic"
             app:layout_constraintTop_toBottomOf="@+id/lbl_yourprofile" />
 
         <TextView
             android:id="@+id/ageown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/coveslight"
             android:text="@string/age_user"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            android:fontFamily="@font/coveslight"
-            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintStart_toStartOf="@+id/txt_name"
             app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
         <TextView
             android:id="@+id/stateown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/coveslight"
             android:text="@string/status_user"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            android:fontFamily="@font/coveslight"
-            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintStart_toStartOf="@+id/txt_name"
             app:layout_constraintTop_toBottomOf="@+id/ageown" />
 
         <TextView
             android:id="@+id/nationown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/coveslight"
             android:text="@string/country_user"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            android:fontFamily="@font/coveslight"
-            app:layout_constraintStart_toEndOf="@+id/image_profilepic"
+            app:layout_constraintStart_toStartOf="@+id/txt_name"
             app:layout_constraintTop_toBottomOf="@+id/stateown" />
 
         <TextView
@@ -199,12 +196,11 @@
             android:id="@+id/facebook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="168dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/facebook_social_button"
             android:minWidth="35dp"
             android:minHeight="35dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/nationown"
             app:layout_constraintTop_toBottomOf="@+id/nationown"
             app:srcCompat="@drawable/facebook" />
 

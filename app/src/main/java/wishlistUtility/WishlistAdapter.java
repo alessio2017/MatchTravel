@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -43,8 +44,22 @@ public class WishlistAdapter extends RecyclerView.Adapter {
         //getting the real image
         Drawable image = parent.getActivity().getDrawable(resourceId);
 
+        //getting images for users
+        int l = userPerCity.get(i).size();
+        Drawable[] userImages = new Drawable[l];
+        int j = 0;
+        while(j < l){
+            String resourceUserName = userPerCity.get(i).get(j).getSurname().toLowerCase().replace(" ", "");
+            Log.i("WISHLIST", "Looking for resource: " + resourceUserName);
+            int resId = parent.getResources().getIdentifier(resourceUserName, "drawable", parent.getActivity().getPackageName());
+            Drawable userImage = parent.getActivity().getDrawable(resId);
+            userImages[j] = userImage;
+            j++;
+        }
+
+        //setting data to holders
         ((WishlistViewHolder) viewHolder).setOnPlusButtonClickedListener((WishlistViewHolder.OnWhishListCellClickListener) parent);
-        ((WishlistViewHolder) viewHolder).bindData(cities.get(i), userPerCity.get(i), image);
+        ((WishlistViewHolder) viewHolder).bindData(cities.get(i), userPerCity.get(i), image, userImages);
     }
 
     @Override

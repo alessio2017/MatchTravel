@@ -188,7 +188,7 @@
             android:paddingBottom="8dp"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/imageUser3" />
+            app:layout_constraintTop_toBottomOf="@+id/userName3" />
 
         <!--Serve solo a creare un bordo sotto all'icona +-->
         <View

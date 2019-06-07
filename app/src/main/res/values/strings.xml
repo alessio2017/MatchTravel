@@ -86,5 +86,7 @@
         Every time you fill out a questionnaire and you choose one or more favourite destinations, all them will appaire in the Wish List of the bottom navigation bar. In that section you will find also all the people interested on the same destinations you choose.\n\n
         5. Can I see major details on the cities?\n
         Yes, of course. Every time you got results of a questionnaire or you search manually a destination, you can accede to all details of that city simply clicking on the name of city. You will be redirected on a screen in which will be showed a little description of that city and a button to add/remove that city from favourites.\n\n
-        We solved your doubts? hope to yes! if you are not satisfied at all please feel free to contact us at match.travel2019@gmail.com</string>
+        We solved your doubts? hope to yes! if you are not satisfied at all please feel free to contact us at match.travel2019@gmail.com
+    </string>
+    <string name="txt_welcome">Welcome! This is the first time you log in Match Travel. Soon you will be able to enjoy the application but first we need you to describe a little yourself.\nType something down here.</string>
 </resources>

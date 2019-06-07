@@ -57,7 +57,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
         this.plusBtn = itemView.findViewById(R.id.icon_plus);
     }
 
-    public void bindData(final City city, final List<User> users, Drawable image){
+    public void bindData(final City city, final List<User> users, Drawable image, Drawable[] userImages){
         cityName.setText(city.getName());
         cityImage.setImageDrawable(image);
 
@@ -75,7 +75,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
                     ((Fragment) listener).startActivity(intentGoToUserProfile);
                 }
             });
-            //TODO: set user image
+            user1Image.setImageDrawable(userImages[0]);
 
             this.contactUser1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -97,7 +97,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
                         ((Fragment) listener).startActivity(intentGoToUserProfile);
                     }
                 });
-                //TODO: set user image
+                user2Image.setImageDrawable(userImages[1]);
 
                 this.contactUser2.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -118,7 +118,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
                             ((Fragment) listener).startActivity(intentGoToUserProfile);
                         }
                     });
-                    //TODO: set user image
+                    user3Image.setImageDrawable(userImages[2]);
 
                     this.contactUser3.setOnClickListener(new View.OnClickListener() {
                         @Override

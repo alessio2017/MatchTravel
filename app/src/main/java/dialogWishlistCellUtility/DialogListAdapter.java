@@ -1,6 +1,7 @@
 package dialogWishlistCellUtility;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -26,8 +27,10 @@ public class DialogListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        //TODO: get image resource
-        ((DialogListViewHolder) viewHolder).bindData(moreUser.get(i),null, context);
+        String resourceName = moreUser.get(i).getSurname().toLowerCase().replace(" ","");
+        int resId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+        Drawable image = context.getDrawable(resId);
+        ((DialogListViewHolder) viewHolder).bindData(moreUser.get(i),image, context);
     }
 
     @Override

@@ -32,8 +32,6 @@ public class HomeFirstLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_homefirstlogin);
-
-        loadingBar = (ProgressBar) findViewById(R.id.progressBar);
         txt_description_user = (EditText) findViewById(R.id.txt_description_user);
         btn_find_destinations = (ImageView) findViewById(R.id.btn_find_destinations);
 
@@ -64,20 +62,5 @@ public class HomeFirstLoginActivity extends AppCompatActivity {
                 startActivity(goToSurvey);
             }
         });
-
-        String name = currentUser.getName() + " " + currentUser.getSurname();
-        Calendar cal = Calendar.getInstance();
-        int currentYear = cal.get(Calendar.YEAR);
-        cal.setTime(currentUser.getAge());
-        int userYear = cal.get(Calendar.YEAR);
-        int age = currentYear - userYear;
-        String ageString = age + " yo";
-        String status = currentUser.getStatus();
-        String country = currentUser.getCountry();
-
-        ((TextView)findViewById(R.id.txt_name)).setText(name);
-        ((TextView)findViewById(R.id.txt_age)).setText(ageString);
-        ((TextView)findViewById(R.id.txt_status)).setText(status);
-        ((TextView)findViewById(R.id.txt_country)).setText(country);
     }
 }

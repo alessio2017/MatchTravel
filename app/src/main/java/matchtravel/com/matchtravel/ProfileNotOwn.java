@@ -1,5 +1,6 @@
 package matchtravel.com.matchtravel;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -61,8 +62,12 @@ public class ProfileNotOwn extends AppCompatActivity {
         TextView listcity = findViewById(R.id.listcity);
         listcity.setText("Where "+this.name+" wants to go");
 
-        //TODO settare immagine utente.
+        //setting image user
         CircleImageView image = findViewById(R.id.image_profilepic);
+        String resName = user.getSurname().toLowerCase().replace(" ", "");
+        int resId = this.getResources().getIdentifier(resName, "drawable", this.getPackageName());
+        Drawable res = this.getDrawable(resId);
+        image.setImageDrawable(res);
 
         List<City> cities = user.getDestinations();
         this.adapter = new ProfileNotAdapter(cities, this);
