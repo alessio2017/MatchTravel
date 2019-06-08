@@ -33,6 +33,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
     private ImageView contactUser3;
     private ImageView favouriteBtn;
     private ImageButton plusBtn;
+    private View invisiblePlusBtn;
 
     private OnWhishListCellClickListener listener;
 
@@ -55,6 +56,7 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
         this.favouriteBtn = itemView.findViewById(R.id.buttonStar);
         //plus button
         this.plusBtn = itemView.findViewById(R.id.icon_plus);
+        this.invisiblePlusBtn = itemView.findViewById(R.id.dialogInvisibleButton);
     }
 
     public void bindData(final City city, final List<User> users, Drawable image, Drawable[] userImages){
@@ -168,8 +170,15 @@ public class WishlistViewHolder extends RecyclerView.ViewHolder {
 
         if(users.size()<=3){
             this.plusBtn.setVisibility(View.GONE);
+            this.invisiblePlusBtn.setVisibility(View.GONE);
         }else {
             this.plusBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onPlusButtonClicked(users);
+                }
+            });
+            this.invisiblePlusBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onPlusButtonClicked(users);

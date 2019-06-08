@@ -1,19 +1,22 @@
 package dialogWishlistCellUtility;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import java.util.List;
 
 import datadb.User;
 import matchtravel.com.matchtravel.R;
 
-public class MoreUserDialog extends Dialog{
+public class MoreUserDialog extends AlertDialog{
 
     private Context context;
     private List<User> users;
@@ -30,6 +33,14 @@ public class MoreUserDialog extends Dialog{
         setContentView(R.layout.dialog_more_user_wishlist);
         recyclerView = findViewById(R.id.more_user_recycler_view);
         updateView();
+
+        TextView back = findViewById(R.id.dialog_btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
     }
 
     public void setUsers(List<User> users){

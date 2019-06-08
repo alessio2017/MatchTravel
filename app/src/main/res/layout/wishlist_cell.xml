@@ -185,10 +185,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/three_dots"
-            android:paddingBottom="8dp"
+            android:layout_margin="16dp"
             app:layout_constraintEnd_toEndOf="@+id/container_user"
             app:layout_constraintStart_toStartOf="@+id/container_user"
-            app:layout_constraintTop_toBottomOf="@+id/userName3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageUser3" />
 
         <!--Serve solo a creare un bordo sotto all'icona +-->
         <View
@@ -219,5 +219,13 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imageUser2"
             app:layout_constraintTop_toBottomOf="@+id/imageUser2" />
+
+        <View
+            android:id="@+id/dialogInvisibleButton"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_plus"
+            app:layout_constraintEnd_toEndOf="@+id/icon_plus"
+            app:layout_constraintStart_toStartOf="@+id/icon_plus" />
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>
