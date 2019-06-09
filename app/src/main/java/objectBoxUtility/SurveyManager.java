@@ -1,6 +1,7 @@
 package objectBoxUtility;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import datadb.City;
@@ -101,6 +102,18 @@ public class SurveyManager {
                 cities.addAll(otherCities);
             }
         }
+
+        while(cities.size()<6){
+            List<City> temp = cityManager.getRandomCities();
+            Iterator<City> iterator = temp.iterator();
+            while(cities.size()<6 && iterator.hasNext()){
+                City c = iterator.next();
+                if(!cities.contains(c)){
+                    cities.add(c);
+                }
+            }
+        }
+
         return cities;
     }
 

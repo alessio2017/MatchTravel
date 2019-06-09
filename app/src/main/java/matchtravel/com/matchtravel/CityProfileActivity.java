@@ -132,4 +132,23 @@ public class CityProfileActivity extends AppCompatActivity {
         //getting the real image
         return this.getDrawable(resourceId);
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        if(actualState!=initialState){
+            intent.putExtra("CityPreferenceModified", true);
+            /*we have to remove or to add the city among the favourites of the user*/
+            if(currentUser.getDestinations().contains(city)){
+                /*notify to remove city*/
+                intent.putExtra("RemoveCity", city.getName());
+            }else{
+                /*notify to add city*/
+                intent.putExtra("AddCity", city.getName());
+            }
+        }
+        setResult(RESULT_OK, intent);
+        finish();
+        super.onBackPressed();
+    }
 }

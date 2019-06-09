@@ -95,9 +95,5 @@ public class ProfileNotAdapter extends RecyclerView.Adapter<ProfileNotAdapter.Vi
                 }
             });
         }
-
-        // Handles the row being being clicked
-
-
     }
 }
