@@ -14,22 +14,23 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         android:fullBackupContent="false">
-        <activity android:name=".CityProfileActivity"/>
-        <activity android:name=".SurveyActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".CityProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SurveyActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeFirstLoginActivity" />
+        <activity android:name=".HomeFirstLoginActivity" android:screenOrientation="portrait"/>
         <activity
             android:name=".WishListActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Result" />
-        <activity android:name=".ProfileNotOwn"/>
-        <activity android:name=".HelpActivity"/>
+        <activity android:name=".Result" android:screenOrientation="portrait"/>
+        <activity android:name=".ProfileNotOwn" android:screenOrientation="portrait"/>
+        <activity android:name=".HelpActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
