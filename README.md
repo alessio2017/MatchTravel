@@ -5,4 +5,4 @@ La condivisione del viaggio è lo scopo di Match Travel.
 Match Travel suggerisce agli utenti alcune destinazioni in base alle loro preferenze, dà anche il possibilità di contattare le persone con lo stesso destinazioni ricercate.
 
 ## Anteprima & Mockup
-![GitHub Logo](/images/logo.png)
+![GitHub Logo](/screenshot.PNG)
